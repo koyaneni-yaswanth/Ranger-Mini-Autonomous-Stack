@@ -12,6 +12,8 @@ def launch_setup(context, *args, **kwargs):
     pkg_description = get_package_share_directory('ranger_description')
 
     world_name = LaunchConfiguration('world').perform(context)
+    if not world_name.endswith('.sdf'):
+        world_name += '.sdf'
     world_file = os.path.join(pkg_simulation, 'worlds', world_name)
     headless = LaunchConfiguration('headless').perform(context).lower() == 'true'
 
