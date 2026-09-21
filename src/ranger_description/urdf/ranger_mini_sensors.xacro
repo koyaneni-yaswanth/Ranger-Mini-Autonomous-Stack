@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="ranger_mini_sensors">
+
+    <!-- Livox Mid-360 LiDAR -->
+    <link name="lidar_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.04" length="0.06"/>
+        </geometry>
+        <material name="black"><color rgba="0.1 0.1 0.1 1"/></material>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="0.04" length="0.06"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="lidar_joint" type="fixed">
+      <parent link="top_deck_link"/>
+      <child link="lidar_link"/>
+      <origin xyz="0.0 0 0.1" rpy="0 0 0"/>
+    </joint>
+
+    <!-- IMU -->
+    <link name="imu_link"/>
+    <joint name="imu_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="imu_link"/>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- RGB-D Camera (Intel RealSense) -->
+    <link name="camera_link">
+      <visual>
+        <geometry><box size="0.02 0.09 0.02"/></geometry>
+        <material name="grey"><color rgba="0.5 0.5 0.5 1.0"/></material>
+      </visual>
+      <collision>
+        <geometry><box size="0.02 0.09 0.02"/></geometry>
+      </collision>
+    </link>
+    <joint name="camera_joint" type="fixed">
+      <parent link="top_deck_link"/>
+      <child link="camera_link"/>
+      <!-- Mounted front of the electronics enclosure, looking forward -->
+      <origin xyz="0.1 0.0 0.08" rpy="0 0 0"/>
+    </joint>
+    
+    <!-- Camera Optical Frame (ROS Standard) -->
+    <link name="camera_optical_link"/>
+    <joint name="camera_optical_joint" type="fixed">
+      <parent link="camera_link"/>
+      <child link="camera_optical_link"/>
+      <!-- Z forward, X right, Y down -->
+      <origin xyz="0 0 0" rpy="-1.5707963 0 -1.5707963"/>
+    </joint>
+
+    <!-- GPS Antenna -->
+    <link name="gps_link"/>
+    <joint name="gps_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="gps_link"/>
+      <origin xyz="-0.1 0.0 0.2" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>

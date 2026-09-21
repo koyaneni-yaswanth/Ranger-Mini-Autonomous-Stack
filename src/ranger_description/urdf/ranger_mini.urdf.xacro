@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="ranger_mini" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Include all modular components -->
+  <xacro:include filename="$(find ranger_description)/urdf/ranger_mini_chassis.xacro"/>
+  <xacro:include filename="$(find ranger_description)/urdf/ranger_mini_wheel.xacro"/>
+  <xacro:include filename="$(find ranger_description)/urdf/ranger_mini_sensors.xacro"/>
+  <xacro:include filename="$(find ranger_description)/urdf/top_platform.xacro"/>
+  <xacro:include filename="$(find ranger_description)/urdf/piper_arm.xacro"/>
+  <xacro:include filename="$(find ranger_description)/urdf/gazebo.xacro"/>
+
+  <!-- Core Chassis Assembly -->
+  <xacro:ranger_mini_chassis/>
+
+  <!-- 4-Wheel Independent Steering Assembly -->
+  <xacro:ranger_mini_wheel prefix="fl" offset_x="0.23" offset_y="0.2" offset_z="-0.1" steering_yaw="0.0" wheel_yaw="0.0"/>
+  <xacro:ranger_mini_wheel prefix="fr" offset_x="0.23" offset_y="-0.2" offset_z="-0.1" steering_yaw="0.0" wheel_yaw="3.14159"/>
+  <xacro:ranger_mini_wheel prefix="rl" offset_x="-0.23" offset_y="0.2" offset_z="-0.1" steering_yaw="0.0" wheel_yaw="0.0"/>
+  <xacro:ranger_mini_wheel prefix="rr" offset_x="-0.23" offset_y="-0.2" offset_z="-0.1" steering_yaw="0.0" wheel_yaw="3.14159"/>
+
+  <!-- Top Deck Platform -->
+  <xacro:ranger_top_platform/>
+
+  <!-- Sensor Assembly (Mounting shifted to top deck) -->
+  <xacro:ranger_mini_sensors/>
+
+  <!-- Piper 6-DOF Robotic Arm -->
+  <xacro:piper_arm parent="top_deck_link">
+    <!-- Mount at the front of the top deck -->
+    <origin xyz="0.15 0 0.01" rpy="0 0 0"/>
+  </xacro:piper_arm>
+
+</robot>

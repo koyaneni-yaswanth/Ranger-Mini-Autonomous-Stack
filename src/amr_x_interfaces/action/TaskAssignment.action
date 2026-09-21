@@ -1,0 +1,14 @@
+# Goal
+string task_id
+string task_type
+string target_object_id
+geometry_msgs/PoseStamped target_location
+---
+# Result
+bool success
+string message
+float32 execution_time_seconds
+---
+# Feedback
+string current_phase
+float32 percent_complete

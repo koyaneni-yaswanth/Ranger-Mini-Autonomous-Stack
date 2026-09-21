@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="ranger_top_platform">
+    <!-- Aluminum Extrusion Frame / Top Deck -->
+    <link name="top_deck_link">
+      <visual>
+        <geometry>
+          <box size="0.6 0.4 0.02"/>
+        </geometry>
+        <material name="dark_grey">
+          <color rgba="0.2 0.2 0.2 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.6 0.4 0.02"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="3.0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.04" ixy="0.0" ixz="0.0" iyy="0.09" iyz="0.0" izz="0.13"/>
+      </inertial>
+    </link>
+
+    <joint name="top_deck_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="top_deck_link"/>
+      <!-- Mounted 15cm above the base_link center -->
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Electronics / Compute Enclosure -->
+    <link name="electronics_enclosure">
+      <visual>
+        <geometry>
+          <box size="0.2 0.3 0.1"/>
+        </geometry>
+        <material name="black">
+          <color rgba="0.1 0.1 0.1 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.2 0.3 0.1"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="1.5"/>
+        <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+      </inertial>
+    </link>
+
+    <joint name="electronics_joint" type="fixed">
+      <parent link="top_deck_link"/>
+      <child link="electronics_enclosure"/>
+      <!-- Placed at the rear of the top deck -->
+      <origin xyz="-0.15 0 0.06" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+</robot>

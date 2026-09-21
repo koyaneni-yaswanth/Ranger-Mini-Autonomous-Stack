@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="failure_test">
+    <physics name="1ms" type="ignored"><max_step_size>0.001</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+    <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors"><render_engine>ogre</render_engine></plugin>
+    <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu"/>
+
+    <light type="directional" name="dim_sun"><cast_shadows>true</cast_shadows><pose>0 0 10 0 0 0</pose><diffuse>0.3 0.3 0.3 1</diffuse><specular>0.1 0.1 0.1 1</specular><direction>-0.5 0.1 -0.9</direction></light>
+    <model name="ground_plane"><static>true</static><link name="link"><collision name="c"><geometry><plane><normal>0 0 1</normal><size>40 40</size></plane></geometry></collision><visual name="v"><geometry><plane><normal>0 0 1</normal><size>40 40</size></plane></geometry><material><ambient>0.4 0.4 0.4 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material></visual></link></model>
+
+    <!-- Dead-end trap corridor to force recovery behaviors -->
+    <model name="dead_end_left"><static>true</static><pose>-1.0 3.0 1 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>0.2 6 2</size></box></geometry></collision><visual name="v"><geometry><box><size>0.2 6 2</size></box></geometry></visual></link></model>
+    <model name="dead_end_right"><static>true</static><pose>1.0 3.0 1 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>0.2 6 2</size></box></geometry></collision><visual name="v"><geometry><box><size>0.2 6 2</size></box></geometry></visual></link></model>
+    <model name="dead_end_cap"><static>true</static><pose>0.0 6.0 1 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>2.2 0.2 2</size></box></geometry></collision><visual name="v"><geometry><box><size>2.2 0.2 2</size></box></geometry></visual></link></model>
+
+    <!-- Occlusion blocks for sensor dropout tests -->
+    <model name="occlusion_pillar_1"><static>true</static><pose>0.0 2.5 0.5 0 0 0</pose><link name="l"><collision name="c"><geometry><cylinder><radius>0.4</radius><length>1.0</length></cylinder></geometry></collision><visual name="v"><geometry><cylinder><radius>0.4</radius><length>1.0</length></cylinder></geometry><material><ambient>0.8 0.1 0.1 1</ambient><diffuse>0.8 0.1 0.1 1</diffuse></material></visual></link></model>
+  </world>
+</sdf>

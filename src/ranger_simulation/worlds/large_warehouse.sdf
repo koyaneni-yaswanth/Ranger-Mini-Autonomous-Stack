@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="large_warehouse">
+    <physics name="1ms" type="ignored"><max_step_size>0.001</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+    <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors"><render_engine>ogre</render_engine></plugin>
+    <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu"/>
+
+    <light type="directional" name="sun"><cast_shadows>true</cast_shadows><pose>0 0 20 0 0 0</pose><diffuse>0.9 0.9 0.9 1</diffuse><specular>0.2 0.2 0.2 1</specular><direction>-0.5 0.1 -0.9</direction></light>
+    <model name="ground_plane"><static>true</static><link name="link"><collision name="c"><geometry><plane><normal>0 0 1</normal><size>60 60</size></plane></geometry></collision><visual name="v"><geometry><plane><normal>0 0 1</normal><size>60 60</size></plane></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+
+    <!-- Large 40m x 30m Facility Perimeter -->
+    <model name="wall_n"><static>true</static><pose>0 15 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>40.4 0.4 4</size></box></geometry></collision><visual name="v"><geometry><box><size>40.4 0.4 4</size></box></geometry></visual></link></model>
+    <model name="wall_s"><static>true</static><pose>0 -15 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>40.4 0.4 4</size></box></geometry></collision><visual name="v"><geometry><box><size>40.4 0.4 4</size></box></geometry></visual></link></model>
+    <model name="wall_e"><static>true</static><pose>20 0 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>0.4 30.0 4</size></box></geometry></collision><visual name="v"><geometry><box><size>0.4 30.0 4</size></box></geometry></visual></link></model>
+    <model name="wall_w"><static>true</static><pose>-20 0 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>0.4 30.0 4</size></box></geometry></collision><visual name="v"><geometry><box><size>0.4 30.0 4</size></box></geometry></visual></link></model>
+
+    <!-- Industrial High-Bay Racking Rows (3 Multi-Aisle Arrays) -->
+    <model name="rack_row_1a"><static>true</static><pose>-10 8 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>12 1.5 4</size></box></geometry></collision><visual name="v"><geometry><box><size>12 1.5 4</size></box></geometry><material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material></visual></link></model>
+    <model name="rack_row_1b"><static>true</static><pose>10 8 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>12 1.5 4</size></box></geometry></collision><visual name="v"><geometry><box><size>12 1.5 4</size></box></geometry><material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material></visual></link></model>
+    <model name="rack_row_2a"><static>true</static><pose>-10 0 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>12 1.5 4</size></box></geometry></collision><visual name="v"><geometry><box><size>12 1.5 4</size></box></geometry><material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material></visual></link></model>
+    <model name="rack_row_2b"><static>true</static><pose>10 0 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>12 1.5 4</size></box></geometry></collision><visual name="v"><geometry><box><size>12 1.5 4</size></box></geometry><material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material></visual></link></model>
+    <model name="rack_row_3a"><static>true</static><pose>-10 -8 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>12 1.5 4</size></box></geometry></collision><visual name="v"><geometry><box><size>12 1.5 4</size></box></geometry><material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material></visual></link></model>
+    <model name="rack_row_3b"><static>true</static><pose>10 -8 2 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>12 1.5 4</size></box></geometry></collision><visual name="v"><geometry><box><size>12 1.5 4</size></box></geometry><material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material></visual></link></model>
+  </world>
+</sdf>

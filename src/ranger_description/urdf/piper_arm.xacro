@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="piper_arm" params="parent *origin">
+    
+    <!-- Arm Mount Plate -->
+    <link name="piper_mount">
+      <visual>
+        <geometry>
+          <cylinder radius="0.06" length="0.02"/>
+        </geometry>
+        <material name="grey"><color rgba="0.5 0.5 0.5 1.0"/></material>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="0.06" length="0.02"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_mount_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="piper_mount"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+
+    <!-- Link 1 (Base Yaw) -->
+    <link name="piper_link1">
+      <visual>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.05" length="0.1"/></geometry>
+        <material name="white"><color rgba="0.9 0.9 0.9 1.0"/></material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.05" length="0.1"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.002" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_joint1" type="revolute">
+      <parent link="piper_mount"/>
+      <child link="piper_link1"/>
+      <origin xyz="0 0 0.01" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.14" upper="3.14" effort="100.0" velocity="1.0"/>
+    </joint>
+
+    <!-- Link 2 (Shoulder Pitch) -->
+    <link name="piper_link2">
+      <visual>
+        <origin xyz="0 0 0.15" rpy="0 0 0"/>
+        <geometry><box size="0.06 0.06 0.3"/></geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.15" rpy="0 0 0"/>
+        <geometry><box size="0.06 0.06 0.3"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="1.2"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.002"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_joint2" type="revolute">
+      <parent link="piper_link1"/>
+      <child link="piper_link2"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-1.57" upper="1.57" effort="100.0" velocity="1.0"/>
+    </joint>
+
+    <!-- Link 3 (Elbow Pitch) -->
+    <link name="piper_link3">
+      <visual>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        <geometry><box size="0.05 0.05 0.2"/></geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        <geometry><box size="0.05 0.05 0.2"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.8"/>
+        <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_joint3" type="revolute">
+      <parent link="piper_link2"/>
+      <child link="piper_link3"/>
+      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-2.0" upper="2.0" effort="80.0" velocity="1.5"/>
+    </joint>
+
+    <!-- Link 4 (Wrist Roll) -->
+    <link name="piper_link4">
+      <visual>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.03" length="0.1"/></geometry>
+        <material name="dark_grey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.03" length="0.1"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.4"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0005"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_joint4" type="revolute">
+      <parent link="piper_link3"/>
+      <child link="piper_link4"/>
+      <origin xyz="0 0 0.2" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.14" upper="3.14" effort="40.0" velocity="2.0"/>
+    </joint>
+
+    <!-- Link 5 (Wrist Pitch) -->
+    <link name="piper_link5">
+      <visual>
+        <origin xyz="0 0 0.04" rpy="0 0 0"/>
+        <geometry><box size="0.04 0.04 0.08"/></geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.04" rpy="0 0 0"/>
+        <geometry><box size="0.04 0.04 0.08"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.3"/>
+        <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0002"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_joint5" type="revolute">
+      <parent link="piper_link4"/>
+      <child link="piper_link5"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-1.57" upper="1.57" effort="40.0" velocity="2.0"/>
+    </joint>
+
+    <!-- Link 6 (Wrist Yaw / End Effector Mount) -->
+    <link name="piper_link6">
+      <visual>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.03" length="0.04"/></geometry>
+        <material name="grey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <geometry><cylinder radius="0.03" length="0.04"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.2"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_joint6" type="revolute">
+      <parent link="piper_link5"/>
+      <child link="piper_link6"/>
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.14" upper="3.14" effort="20.0" velocity="2.0"/>
+    </joint>
+
+    <!-- Gripper Base -->
+    <link name="piper_gripper_base">
+      <visual>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <geometry><box size="0.1 0.03 0.04"/></geometry>
+        <material name="dark_grey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <geometry><box size="0.1 0.03 0.04"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.2"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_gripper_joint" type="fixed">
+      <parent link="piper_link6"/>
+      <child link="piper_gripper_base"/>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Gripper Left Finger -->
+    <link name="piper_finger_left">
+      <visual>
+        <origin xyz="0 0 0.04" rpy="0 0 0"/>
+        <geometry><box size="0.01 0.02 0.08"/></geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.04" rpy="0 0 0"/>
+        <geometry><box size="0.01 0.02 0.08"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.05"/>
+        <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_finger_left_joint" type="prismatic">
+      <parent link="piper_gripper_base"/>
+      <child link="piper_finger_left"/>
+      <origin xyz="0.04 0 0.04" rpy="0 0 0"/>
+      <axis xyz="-1 0 0"/>
+      <limit lower="0.0" upper="0.03" effort="50.0" velocity="0.1"/>
+    </joint>
+
+    <!-- Gripper Right Finger -->
+    <link name="piper_finger_right">
+      <visual>
+        <origin xyz="0 0 0.04" rpy="0 0 0"/>
+        <geometry><box size="0.01 0.02 0.08"/></geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.04" rpy="0 0 0"/>
+        <geometry><box size="0.01 0.02 0.08"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.05"/>
+        <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+      </inertial>
+    </link>
+
+    <joint name="piper_finger_right_joint" type="prismatic">
+      <parent link="piper_gripper_base"/>
+      <child link="piper_finger_right"/>
+      <origin xyz="-0.04 0 0.04" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="0.0" upper="0.03" effort="50.0" velocity="0.1"/>
+      <mimic joint="piper_finger_left_joint" multiplier="1.0"/>
+    </joint>
+
+    <!-- End Effector Optical Frame (for Grasping calculations) -->
+    <link name="piper_end_effector"/>
+    <joint name="piper_ee_joint" type="fixed">
+      <parent link="piper_gripper_base"/>
+      <child link="piper_end_effector"/>
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
