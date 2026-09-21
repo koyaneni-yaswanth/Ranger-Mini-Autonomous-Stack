@@ -20,7 +20,7 @@ def generate_launch_description():
             ],
             parameters=[{
                 'target_frame': 'lidar_link',
-                'transform_tolerance': 0.01,
+                'transform_tolerance': 0.2,
                 'min_height': -0.1,
                 'max_height': 1.0,
                 'angle_min': -3.14159,

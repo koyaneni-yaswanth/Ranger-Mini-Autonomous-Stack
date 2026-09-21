@@ -1,10 +1,22 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.conditions import IfCondition
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
+    publish_odom_tf = LaunchConfiguration('publish_odom_tf')
+    declare_publish_odom_tf = DeclareLaunchArgument(
+        'publish_odom_tf',
+        default_value='false',
+        description='Whether to publish odom->base_footprint TF (keep false in simulation to prevent duplicate TF with Gazebo)'
+    )
+
     return LaunchDescription([
+        declare_publish_odom_tf,
+
         # Joint State Broadcaster
         Node(
             package='controller_manager',
@@ -45,12 +57,13 @@ def generate_launch_description():
             output='screen',
         ),
         
-        # EKF Node for Odometry -> Base Footprint TF
+        # Odom TF Broadcaster (only enabled when publish_odom_tf is true)
         Node(
             package='ranger_control',
             executable='odom_tf_broadcaster.py',
             name='odom_tf_broadcaster',
             output='screen',
-            parameters=[{'use_sim_time': True}]
+            parameters=[{'use_sim_time': True}],
+            condition=IfCondition(publish_odom_tf)
         )
     ])
