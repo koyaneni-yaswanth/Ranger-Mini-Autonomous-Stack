@@ -1,0 +1,5 @@
+test_id,env,target,status,details
+TEST_A,ROS 2 Humble,Simulation (Gazebo Fortress),PASS,"21/21 packages built, URDF valid, TF tree continuous, Nav2/SLAM/Sensors verified"
+TEST_B,ROS 2 Humble,Physical Hardware (SocketCAN can0),BLOCKED,Physical hardware not connected (no can0 / ttyUSB detected on host)
+TEST_C,ROS 2 Lyrical,Simulation (Gazebo Fortress/Jetty),PASS,"21/21 packages built, URDF valid, TF tree continuous, Nav2/SLAM/Sensors verified"
+TEST_D,ROS 2 Lyrical,Physical Hardware (SocketCAN can0),BLOCKED,Physical hardware not connected (no can0 / ttyUSB detected on host)

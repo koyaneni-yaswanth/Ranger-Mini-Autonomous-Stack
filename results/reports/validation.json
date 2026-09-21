@@ -1,0 +1,51 @@
+{
+  "platform": "Ranger Mini Autonomous Stack",
+  "matrix_version": "4-Way Sim/Hardware Matrix (Humble & Lyrical)",
+  "date": "2026-09-21",
+  "total_packages": 21,
+  "tests": [
+    {
+      "test_id": "TEST_A",
+      "env": "ROS 2 Humble",
+      "target": "Simulation (Gazebo Fortress)",
+      "status": "PASS",
+      "details": "21/21 packages built, URDF valid, TF tree continuous, Nav2/SLAM/Sensors verified"
+    },
+    {
+      "test_id": "TEST_B",
+      "env": "ROS 2 Humble",
+      "target": "Physical Hardware (SocketCAN can0)",
+      "status": "BLOCKED",
+      "details": "Physical hardware not connected (no can0 / ttyUSB detected on host)"
+    },
+    {
+      "test_id": "TEST_C",
+      "env": "ROS 2 Lyrical",
+      "target": "Simulation (Gazebo Fortress/Jetty)",
+      "status": "PASS",
+      "details": "21/21 packages built, URDF valid, TF tree continuous, Nav2/SLAM/Sensors verified"
+    },
+    {
+      "test_id": "TEST_D",
+      "env": "ROS 2 Lyrical",
+      "target": "Physical Hardware (SocketCAN can0)",
+      "status": "BLOCKED",
+      "details": "Physical hardware not connected (no can0 / ttyUSB detected on host)"
+    }
+  ],
+  "results": {
+    "test_a_humble_sim": "PASS",
+    "test_b_humble_hardware": "BLOCKED \u2014 Physical hardware not connected",
+    "test_c_lyrical_sim": "PASS",
+    "test_d_lyrical_hardware": "BLOCKED \u2014 Physical hardware not connected"
+  },
+  "system_metrics": {
+    "humble_build_time_s": 35.5,
+    "lyrical_build_time_s": 2.55,
+    "symlinks_count": 0,
+    "urdf_link_count": 19,
+    "urdf_joint_count": 18,
+    "tf_root": "odom",
+    "tf_leaf": "camera_depth_optical_frame"
+  }
+}
