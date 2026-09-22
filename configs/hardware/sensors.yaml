@@ -1,0 +1,20 @@
+# Physical Sensor Parameters
+lidar:
+  model: livox_mid360
+  interface: ethernet
+  ip: 192.168.1.100
+  xfer_format: 1 # PointCloud2
+  frame_id: lidar_link
+
+camera:
+  model: intel_realsense_d435
+  enable_depth: true
+  enable_color: true
+  resolution: 640x480
+  fps: 30
+  frame_id: camera_link
+
+imu:
+  source: onboard_can
+  topic: /imu/data
+  rate_hz: 100

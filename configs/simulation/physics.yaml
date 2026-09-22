@@ -1,0 +1,7 @@
+# Simulation Physics & Gazebo Settings
+gazebo_physics:
+  engine: dart
+  max_step_size: 0.001
+  real_time_update_rate: 1000
+  render_engine: ogre
+  gpu_adapter: NVIDIA

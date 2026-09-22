@@ -1,0 +1,9 @@
+# Real Hardware CAN & Driver Settings
+hardware_interface:
+  interface_type: socketcan
+  device: can0
+  bitrate: 500000
+  command_timeout_ms: 200
+  heartbeat_hz: 50
+  robot_model: ranger_mini_v2
+  emergency_stop_pin: active_low

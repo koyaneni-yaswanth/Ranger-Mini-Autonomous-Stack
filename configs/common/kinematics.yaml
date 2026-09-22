@@ -1,0 +1,10 @@
+# Common Kinematics Parameters for Ranger Mini
+robot_parameters:
+  wheelbase: 0.498     # m
+  track_width: 0.580   # m
+  wheel_radius: 0.105  # m
+  max_linear_x: 1.5    # m/s
+  max_linear_y: 1.0    # m/s (crab drive)
+  max_angular_z: 1.2   # rad/s
+  max_accel_x: 2.0     # m/s^2
+  max_accel_theta: 2.5 # rad/s^2

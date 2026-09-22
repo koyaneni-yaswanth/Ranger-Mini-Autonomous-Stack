@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-22",
+  "os": "Description:\tUbuntu 22.04.5 LTS",
+  "kernel": "Linux recvnit 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+  "arch": "x86_64",
+  "python": "Python 3.10.12",
+  "gcc": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "cmake": "cmake version 3.22.1",
+  "git": "git version 2.34.1",
+  "docker": "Docker version 29.8.1, build 4a63305",
+  "ros_distributions": [
+    "humble"
+  ],
+  "display": ":0",
+  "gpu": "NVIDIA GeForce RTX 5060, 591.86, 8151 MiB",
+  "workspaces": {
+    "ranger_mini_workbench": {
+      "branch": "main",
+      "head": "5ebd2b58ada2c9cc6188403cf81aa212d4782fb0",
+      "status": "?? backups/"
+    },
+    "ranger_mini_lyrical_ws": {
+      "branch": "lyrical",
+      "head": "9988897782aa78f16ad6ee90e46375b687354424",
+      "status": ""
+    },
+    "ranger_mini_humble_ws": {
+      "branch": "humble",
+      "head": "ce5916e8750d529cc810f11bb7f81d4b15675762",
+      "status": ""
+    }
+  }
+}
