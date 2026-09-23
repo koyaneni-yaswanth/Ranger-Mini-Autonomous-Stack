@@ -1,0 +1,13 @@
+# Ranger Mini Wheel & Steering Kinematic Calibration
+
+kinematics:
+  track_width_m: 0.380
+  wheelbase_m: 0.360
+  wheel_radius_m: 0.095
+
+corrections:
+  left_front_steering_offset_rad: 0.000
+  right_front_steering_offset_rad: 0.000
+  left_rear_steering_offset_rad: 0.000
+  right_rear_steering_offset_rad: 0.000
+  wheel_velocity_multiplier: 1.000

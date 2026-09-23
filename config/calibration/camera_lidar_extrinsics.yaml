@@ -1,0 +1,15 @@
+# Extrinsic Calibration: Livox Mid-360 LiDAR to Intel RealSense D435i
+
+parent_frame: "lidar_link"
+child_frame: "camera_link"
+
+transform:
+  translation:
+    x: 0.085
+    y: 0.000
+    z: -0.065
+  rotation_quaternion:
+    x: 0.000
+    y: 0.000
+    z: 0.000
+    w: 1.000

@@ -1,0 +1,22 @@
+# Network Configuration Matrix for AgileX Ranger Mini Autonomous Platform
+
+interfaces:
+  jetson_ethernet:
+    interface: "eth0"
+    ip: "192.168.1.100"
+    netmask: "255.255.255.0"
+    gateway: "192.168.1.1"
+
+devices:
+  livox_mid360:
+    ip: "192.168.1.102"
+    port: 56000
+    host_port: 56000
+  
+  realsense_network_bridge:
+    ip: "192.168.1.103"
+    port: 8554
+
+  engineer_workstation:
+    ip: "192.168.1.50"
+    ros_domain_id: 42

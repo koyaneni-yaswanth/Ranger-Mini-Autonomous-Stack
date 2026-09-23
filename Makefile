@@ -1,9 +1,9 @@
-# Ranger Mini Next-Gen Platform Makefile
+# AgileX Ranger Mini Autonomous Stack Platform Makefile
 SHELL := /bin/bash
-PROJECT_DIR := /home/yash/ranger_mini_lyrical_2604_project
-WS_DIR := /home/yash/ranger_mini_lyrical_2604_ws
+PROJECT_DIR := $(CURDIR)
+WS_DIR := $(abspath $(PROJECT_DIR)/../ranger_mini_lyrical_2604_ws)
 
-.PHONY: all build clean test sim slam nav real diagnostics health check
+.PHONY: all build clean test sim slam nav real diagnostics health check jetson-check jetson-setup hw-health validate
 
 all: build
 
@@ -36,3 +36,15 @@ diagnostics:
 
 health:
 	@bash $(PROJECT_DIR)/scripts/health_check.sh
+
+jetson-check:
+	@bash $(PROJECT_DIR)/scripts/check_jetson_environment.sh
+
+jetson-setup:
+	@bash $(PROJECT_DIR)/scripts/setup_jetson.sh
+
+hw-health:
+	@bash $(PROJECT_DIR)/scripts/hardware_health_check.sh
+
+validate:
+	@bash $(PROJECT_DIR)/scripts/validate_deployment.sh

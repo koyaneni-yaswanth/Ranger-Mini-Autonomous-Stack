@@ -18,7 +18,7 @@ export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
 export LIBGL_ALWAYS_SOFTWARE=0
 export GALLIUM_DRIVER=d3d12
 
-WS_DIR="/home/yash/ranger_mini_lyrical_2604_ws"
+WS_DIR="${WS_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../../ranger_mini_lyrical_2604_ws" 2>/dev/null && pwd)}"
 if [ -f "$WS_DIR/install/setup.bash" ]; then
     source "$WS_DIR/install/setup.bash"
 fi

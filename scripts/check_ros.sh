@@ -5,7 +5,7 @@ echo "==========================================================================
 echo " [ROS CHECK] STRICT ROS 2 DISTRIBUTION & BINARY INTEGRITY AUDIT"
 echo "=============================================================================="
 
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 if [ -f "$PROJECT_DIR/env/source_lyrical.sh" ]; then
     source "$PROJECT_DIR/env/source_lyrical.sh" 2>/dev/null || true
 fi

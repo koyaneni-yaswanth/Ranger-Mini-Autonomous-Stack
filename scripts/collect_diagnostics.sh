@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 REPORT_DIR="$PROJECT_DIR/diagnostics/$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$REPORT_DIR"
 

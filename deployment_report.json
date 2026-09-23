@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-23T07:01:57Z",
+  "host": {
+    "hostname": "recvnit",
+    "kernel": "6.18.33.2-microsoft-standard-WSL2",
+    "arch": "x86_64",
+    "ros_distro": "lyrical",
+    "ros_version": "ROS 2 Lyrical",
+    "gazebo_version": "10.5.0"
+  },
+  "hardware_readiness": {
+    "can0_status": "ABSENT",
+    "physical_hardware_connected": false,
+    "status": "NOT_READY_PHYSICAL_ABSENT"
+  },
+  "software_readiness": {
+    "launch_compile_errors": 0,
+    "workspace_built": true,
+    "status": "READY"
+  }
+}

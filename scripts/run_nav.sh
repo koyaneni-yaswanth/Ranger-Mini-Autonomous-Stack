@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 source "$PROJECT_DIR/env/source_lyrical.sh"
-MAP_FILE="${1:-/home/yash/ranger_mini_workbench/backups/my_warehouse_map.yaml}"
+MAP_FILE="${1:-$PROJECT_DIR/../ranger_mini_lyrical_2604_ws/src/ranger_navigation/maps/warehouse.yaml}"
 
 echo "=============================================================================="
 echo " LAUNCHING NAV2 AUTONOMOUS NAVIGATION (Map: $MAP_FILE)"

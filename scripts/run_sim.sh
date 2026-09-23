@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 source "$PROJECT_DIR/env/source_lyrical.sh"
 WORLD="${1:-simple_indoor}"
 

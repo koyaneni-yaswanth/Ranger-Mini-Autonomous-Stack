@@ -2,14 +2,14 @@
 echo "=============================================================================="
 echo " RANGER MINI NEXT-GEN PLATFORM: HEALTH CHECK"
 echo "=============================================================================="
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
-WS_DIR="/home/yash/ranger_mini_lyrical_2604_ws"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+WS_DIR="${WS_DIR:-$(cd "$PROJECT_DIR/../ranger_mini_lyrical_2604_ws" 2>/dev/null && pwd)}"
 
 # 1. Environment check
-if [ -d "/opt/ros/lyrical" ] || [ -d "/opt/ros/humble" ]; then
-    echo "[OK] Base ROS 2 installation present."
+if [ -d "/opt/ros/lyrical" ]; then
+    echo "[OK] ROS 2 Lyrical installation present at /opt/ros/lyrical."
 else
-    echo "[FAIL] No ROS 2 installation found."
+    echo "[FAIL] ROS 2 Lyrical installation not found at /opt/ros/lyrical."
 fi
 
 # 2. GPU Check
@@ -23,7 +23,7 @@ fi
 if [ -f "$WS_DIR/install/setup.bash" ]; then
     echo "[OK] Lyrical workspace built and ready."
 else
-    echo "[INFO] Workspace not yet built. Run ./env/build_lyrical.sh."
+    echo "[INFO] Workspace not yet built. Run make build."
 fi
 
 # 4. Display check

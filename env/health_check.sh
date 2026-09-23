@@ -2,8 +2,8 @@
 echo "=============================================================================="
 echo " RANGER MINI NEXT-GEN PLATFORM: HEALTH CHECK"
 echo "=============================================================================="
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
-WS_DIR="/home/yash/ranger_mini_lyrical_2604_ws"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+WS_DIR="${WS_DIR:-$(cd "$PROJECT_DIR/../ranger_mini_lyrical_2604_ws" 2>/dev/null && pwd)}"
 
 # 1. Environment check
 if [ -d "/opt/ros/lyrical" ] || [ -d "/opt/ros/humble" ]; then

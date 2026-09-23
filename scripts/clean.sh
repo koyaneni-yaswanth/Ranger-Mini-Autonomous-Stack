@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 bash "$PROJECT_DIR/env/clean_build.sh"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-PROJECT_DIR="/home/yash/ranger_mini_lyrical_2604_project"
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 source "$PROJECT_DIR/env/source_lyrical.sh"
 
 if [ "$ROS_DISTRO" != "lyrical" ]; then
@@ -8,7 +8,7 @@ if [ "$ROS_DISTRO" != "lyrical" ]; then
     exit 1
 fi
 
-WS_DIR="/home/yash/ranger_mini_lyrical_2604_ws"
+WS_DIR="${WS_DIR:-$(cd "$PROJECT_DIR/../ranger_mini_lyrical_2604_ws" 2>/dev/null && pwd)}"
 cd "$WS_DIR"
 echo "[INFO] Compiling Lyrical Workspace at $WS_DIR..."
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
