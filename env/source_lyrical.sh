@@ -17,6 +17,8 @@ export RMW_IMPLEMENTATION="${RMW_IMPLEMENTATION:-rmw_fastrtps_cpp}"
 export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
 export LIBGL_ALWAYS_SOFTWARE=0
 export GALLIUM_DRIVER=d3d12
+# Force X11/XCB for Qt to ensure flawless OGRE rendering in WSLg / RViz2
+export QT_QPA_PLATFORM=xcb
 
 WS_DIR="${WS_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../../ranger_mini_lyrical_2604_ws" 2>/dev/null && pwd)}"
 if [ -f "$WS_DIR/install/setup.bash" ]; then
