@@ -1,0 +1,100 @@
+[89361.568819] RDX: 0000000000000006 RSI: 0000000000008d75 RDI: 0000000000008d75
+[89361.568820] RBP: 0000000000008d75 R08: 00007ffff9cf9240 R09: 00007ffff9cf83c0
+[89361.568821] R10: 0000000000000008 R11: 0000000000000246 R12: 0000000000000006
+[89361.568846] R13: 0000000000000016 R14: 000063b5bf46b450 R15: 00007c7a2305a040
+[89361.568905] FS:  00007c7a2209bfc0 GS:  0000000000000000
+[89361.570144] WSL (5553 - CaptureCrash): Capturing crash for pid: 36213, executable: !opt!ros!humble!lib!nav2_controller!controller_server, signal: 6, port: 50005
+[89931.733135] mini_init (148): drop_caches: 1
+[122487.794938] misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+[122487.797507] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122487.797829] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122487.798066] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122487.798355] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122487.800151] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122487.800431] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122487.800747] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122487.801113] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.493675] misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+[122497.495576] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122497.495839] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122497.496127] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122497.496466] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.498495] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122497.498799] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122497.499067] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[122497.499427] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.670880] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.894453] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.894858] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.895229] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.895513] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.895803] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.896054] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.896340] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.896772] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.897167] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.897471] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.897769] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.898321] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.898585] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.898954] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.899277] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.899585] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[122497.969627] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123747.010908] mini_init (148): drop_caches: 1
+[123812.808784] misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+[123812.810657] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[123812.810985] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[123812.811247] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[123812.811847] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123812.813642] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[123812.813923] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[123812.814274] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[123812.814667] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123812.922645] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.087362] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.087788] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.088101] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.088368] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.088633] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.088944] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.089232] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.089493] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.089876] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.090205] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.090467] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.090962] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.091252] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.091522] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.091803] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.092079] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123813.138766] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[123858.853470] mini_init (148): drop_caches: 1
+[123915.148502] mini_init (148): drop_caches: 1
+[124012.067219] misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+[124012.070224] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[124012.070700] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[124012.071107] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[124012.071583] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.073667] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[124012.073984] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[124012.074234] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[124012.074630] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.197508] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.377590] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.378014] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.378382] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.378752] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.379132] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.379471] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.379910] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.380196] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.380530] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.380809] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.381097] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.381519] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.381828] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.382101] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.382369] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.382681] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[124012.433850] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2

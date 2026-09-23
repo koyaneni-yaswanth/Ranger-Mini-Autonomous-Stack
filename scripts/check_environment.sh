@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+echo "=============================================================================="
+echo " [ENV CHECK] SYSTEM, WSL, & GPU ENVIRONMENT AUDIT"
+echo "=============================================================================="
+echo "Kernel:         $(uname -r)"
+echo "Architecture:   $(uname -m)"
+echo "Python:         $(python3 --version 2>&1)"
+echo "GCC:            $(gcc --version 2>&1 | head -n 1)"
+echo "CMake:          $(cmake --version 2>&1 | head -n 1)"
+echo "Docker:         $(docker --version 2>&1 || echo 'Docker not available')"
+echo "GPU:            $(nvidia-smi --query-gpu=name,driver_version --format=csv,noheader 2>/dev/null || echo 'No GPU')"
+echo "Display:        DISPLAY=$DISPLAY | WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
+echo "=============================================================================="
+echo "[PASS] Environment pre-flight check complete."
