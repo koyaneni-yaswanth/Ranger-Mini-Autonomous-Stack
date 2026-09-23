@@ -114,7 +114,7 @@ Visualization Manager:
       Color: 0; 180; 255
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Name: PointCloud2
       Position Transformer: XYZ
       Queue Size: 5
