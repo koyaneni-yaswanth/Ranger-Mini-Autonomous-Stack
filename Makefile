@@ -75,3 +75,6 @@ orchestrator:
 
 cli:
 	@source /opt/ros/lyrical/setup.bash && source $(WS_DIR)/install/setup.bash && python3 $(PROJECT_DIR)/scripts/interactive_task_cli.py
+
+run-all:
+	@bash $(PROJECT_DIR)/scripts/run_all.sh
