@@ -3,7 +3,7 @@ SHELL := /bin/bash
 PROJECT_DIR := $(CURDIR)
 WS_DIR := $(abspath $(PROJECT_DIR)/../ranger_mini_lyrical_2604_ws)
 
-.PHONY: all build clean stop test sim base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate
+.PHONY: all build clean stop test sim base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli
 
 all: build
 
@@ -66,3 +66,12 @@ hw-health:
 
 validate:
 	@bash $(PROJECT_DIR)/scripts/validate_deployment.sh
+
+ai-task:
+	@source /opt/ros/lyrical/setup.bash && source $(WS_DIR)/install/setup.bash && ros2 run ranger_missions ai_task_interpreter
+
+orchestrator:
+	@source /opt/ros/lyrical/setup.bash && source $(WS_DIR)/install/setup.bash && ros2 run ranger_missions autonomous_task_orchestrator
+
+cli:
+	@source /opt/ros/lyrical/setup.bash && source $(WS_DIR)/install/setup.bash && python3 $(PROJECT_DIR)/scripts/interactive_task_cli.py

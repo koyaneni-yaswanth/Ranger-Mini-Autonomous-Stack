@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AutonomousRoboticsTaskSchema",
+  "type": "object",
+  "properties": {
+    "task_id": { "type": "string" },
+    "action": {
+      "type": "string",
+      "enum": ["pick_and_place", "pick", "place", "inspect", "patrol", "dock"]
+    },
+    "target_object": {
+      "type": "object",
+      "properties": {
+        "class": { "type": "string" },
+        "color": { "type": "string" },
+        "id": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["class"]
+    },
+    "source_location": {
+      "type": "object",
+      "properties": {
+        "station_id": { "type": "string" },
+        "type": { "type": "string" },
+        "coordinates": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 3,
+          "maxItems": 3
+        }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "properties": {
+        "station_id": { "type": "string" },
+        "type": { "type": "string" },
+        "coordinates": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 3,
+          "maxItems": 3
+        }
+      },
+      "required": ["station_id"]
+    },
+    "safety_constraints": {
+      "type": "object",
+      "properties": {
+        "max_speed_mps": { "type": "number", "maximum": 1.5 },
+        "require_arm_verification": { "type": "boolean" },
+        "obstacle_clearance_m": { "type": "number", "minimum": 0.2 }
+      }
+    }
+  },
+  "required": ["task_id", "action", "target_object", "destination"]
+}

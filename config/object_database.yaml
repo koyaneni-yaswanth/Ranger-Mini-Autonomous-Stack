@@ -1,0 +1,79 @@
+# Extensible Semantic Object Database
+# Defines physical object classes, grasp characteristics, visual priors, and destination rules.
+
+objects:
+  cube:
+    description: "Standard industrial handling cube"
+    dimensions_m: [0.06, 0.06, 0.06]
+    weight_kg: 0.15
+    graspable: true
+    preferred_grasp: "top"
+    grasp_width_m: 0.065
+    approach_vector: [0.0, 0.0, -1.0]
+    lift_height_m: 0.12
+    colors:
+      red:
+        hsv_lower_1: [0, 120, 70]
+        hsv_upper_1: [10, 255, 255]
+        hsv_lower_2: [170, 120, 70]
+        hsv_upper_2: [180, 255, 255]
+      blue:
+        hsv_lower_1: [100, 150, 50]
+        hsv_upper_1: [130, 255, 255]
+      green:
+        hsv_lower_1: [40, 100, 50]
+        hsv_upper_1: [80, 255, 255]
+    default_destination: "target_station"
+
+  box:
+    description: "Medium payload carton / container box"
+    dimensions_m: [0.10, 0.10, 0.08]
+    weight_kg: 0.35
+    graspable: true
+    preferred_grasp: "side"
+    grasp_width_m: 0.080
+    approach_vector: [1.0, 0.0, 0.0]
+    lift_height_m: 0.15
+    colors:
+      blue:
+        hsv_lower_1: [100, 150, 50]
+        hsv_upper_1: [130, 255, 255]
+      brown:
+        hsv_lower_1: [10, 100, 20]
+        hsv_upper_1: [25, 255, 200]
+    default_destination: "assembly_bin"
+
+  bottle:
+    description: "Cylindrical beverage / reagent container"
+    dimensions_m: [0.065, 0.065, 0.18]
+    weight_kg: 0.25
+    graspable: true
+    preferred_grasp: "side"
+    grasp_width_m: 0.070
+    approach_vector: [1.0, 0.0, 0.0]
+    lift_height_m: 0.18
+    colors:
+      white:
+        hsv_lower_1: [0, 0, 180]
+        hsv_upper_1: [180, 30, 255]
+      green:
+        hsv_lower_1: [40, 100, 50]
+        hsv_upper_1: [80, 255, 255]
+    default_destination: "inspection_table"
+
+stations:
+  home_dock:
+    coordinates: [0.0, 0.0, 0.0]
+    description: "Automated AMR charging dock and idle staging bay"
+  inspection_table:
+    coordinates: [1.6, 0.0, 0.45]
+    description: "Inspection workstation table where objects arrive for sorting"
+  target_station:
+    coordinates: [1.6, -0.6, 0.40]
+    description: "Target workstation receiving station"
+  assembly_bin:
+    coordinates: [1.2, -0.8, 0.30]
+    description: "Parts assembly drop bin"
+  charging_station:
+    coordinates: [0.0, 0.5, 0.0]
+    description: "Auxiliary fast-charge docking contact"
