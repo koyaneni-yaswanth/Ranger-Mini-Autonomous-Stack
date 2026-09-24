@@ -8,13 +8,25 @@ WS_DIR="${WS_DIR:-$(cd "$PROJECT_DIR/../ranger_mini_lyrical_2604_ws" 2>/dev/null
 source "$PROJECT_DIR/env/source_lyrical.sh"
 source "$WS_DIR/install/setup.bash"
 
-HEADLESS="${HEADLESS:-true}"
+# Parse arguments / environment
+GUI="${GUI:-false}"
+if [ "$1" = "--gui" ] || [ "$1" = "-g" ]; then
+    GUI="true"
+    shift || true
+fi
+
+if [ "$GUI" = "true" ]; then
+    HEADLESS="false"
+else
+    HEADLESS="${HEADLESS:-true}"
+fi
+
 MISSION_PROMPT="${1:-Find the red object, pick it up, and place it at the target station}"
 
 echo "=============================================================================="
 echo "    RANGER MINI AUTONOMOUS MOBILE MANIPULATOR: RUN-ALL MASTER PIPELINE"
 echo "=============================================================================="
-echo " Mode: Modular Piper 6-DOF | Headless: $HEADLESS"
+echo " Mode: Modular Piper 6-DOF | Visual GUI: $GUI | Headless: $HEADLESS"
 echo " Target Mission: \"$MISSION_PROMPT\""
 echo "=============================================================================="
 
@@ -24,6 +36,7 @@ echo "IDLE" > /tmp/mission_state.txt
 
 # Trap cleanup to terminate background processes on exit
 SIM_PID=""
+RVIZ_PID=""
 AI_INTERP_PID=""
 WORLD_MODEL_PID=""
 ORCHESTRATOR_PID=""
@@ -36,11 +49,13 @@ cleanup() {
     [ -n "$ORCHESTRATOR_PID" ] && kill -2 "$ORCHESTRATOR_PID" 2>/dev/null || true
     [ -n "$WORLD_MODEL_PID" ] && kill -2 "$WORLD_MODEL_PID" 2>/dev/null || true
     [ -n "$AI_INTERP_PID" ] && kill -2 "$AI_INTERP_PID" 2>/dev/null || true
+    [ -n "$RVIZ_PID" ] && kill -2 "$RVIZ_PID" 2>/dev/null || true
     [ -n "$SIM_PID" ] && kill -2 "$SIM_PID" 2>/dev/null || true
     sleep 2
     # Ensure all gz and ros2 are stopped
     pkill -9 -f "ros_gz" 2>/dev/null || true
     pkill -9 -f "gz_sim" 2>/dev/null || true
+    pkill -9 -f "rviz2" 2>/dev/null || true
     pkill -9 -f "ranger_missions" 2>/dev/null || true
     pkill -9 -f "ranger_vision" 2>/dev/null || true
     echo "[OK] All processes stopped cleanly."
@@ -53,7 +68,7 @@ bash "$PROJECT_DIR/scripts/health_check.sh"
 
 # 2. Launch Simulation & Base Stack
 echo ""
-echo "[2/5] Launching Gazebo Harmonic + Robot Base + Piper 6-DOF + Perception..."
+echo "[2/5] Launching Gazebo Harmonic + Robot Base + Piper 6-DOF + Perception (GUI: $GUI)..."
 ros2 launch ranger_bringup sim.launch.py \
     headless:="$HEADLESS" \
     manipulator:=true \
@@ -75,6 +90,13 @@ done
 
 if [ $WAIT_COUNT -ge $MAX_WAIT ]; then
     echo "      [WARN] Simulation startup took longer than $MAX_WAIT seconds. Continuing..."
+fi
+
+# Launch RViz2 if GUI requested
+if [ "$GUI" = "true" ]; then
+    echo "      Launching RViz2 3D Visualizer window..."
+    rviz2 -d "$PROJECT_DIR/config/slam.rviz" > /tmp/rviz2.log 2>&1 &
+    RVIZ_PID=$!
 fi
 
 # 3. Launch AI Stack

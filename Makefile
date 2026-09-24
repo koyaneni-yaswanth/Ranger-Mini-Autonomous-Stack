@@ -78,3 +78,9 @@ cli:
 
 run-all:
 	@bash $(PROJECT_DIR)/scripts/run_all.sh
+
+run-all-gui:
+	@GUI=true bash $(PROJECT_DIR)/scripts/run_all.sh
+
+gui:
+	@GUI=true bash $(PROJECT_DIR)/scripts/run_all.sh
