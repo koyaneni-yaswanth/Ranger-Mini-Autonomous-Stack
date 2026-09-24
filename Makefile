@@ -3,7 +3,7 @@ SHELL := /bin/bash
 PROJECT_DIR := $(CURDIR)
 WS_DIR := $(abspath $(PROJECT_DIR)/../ranger_mini_lyrical_2604_ws)
 
-.PHONY: all build clean stop test sim slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate
+.PHONY: all build clean stop test sim base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate
 
 all: build
 
@@ -24,6 +24,15 @@ test:
 
 sim:
 	@bash $(PROJECT_DIR)/scripts/run_sim.sh
+
+base-only:
+	@bash $(PROJECT_DIR)/scripts/run_base_only.sh
+
+piper:
+	@bash $(PROJECT_DIR)/scripts/run_piper.sh
+
+detect-manipulator:
+	@bash $(PROJECT_DIR)/scripts/detect_manipulator.sh
 
 slam:
 	@bash $(PROJECT_DIR)/scripts/run_slam.sh

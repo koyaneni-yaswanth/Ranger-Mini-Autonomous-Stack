@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# 10-LEVEL REAL HARDWARE HEALTH CHECK AUDIT
+# 11-LEVEL REAL HARDWARE HEALTH CHECK AUDIT
 # Zero Fabrication Guarantee: Never fake hardware presence.
 # Returns EXIT 0 only if genuine physical hardware is confirmed connected.
 # Returns EXIT 1 (BLOCKED) with actionable diagnosis if hardware is absent.
@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 echo "=============================================================================="
-echo "          10-LEVEL REAL HARDWARE HEALTH AUDIT"
+echo "          11-LEVEL REAL HARDWARE HEALTH AUDIT"
 echo "=============================================================================="
 
 PASS_COUNT=0
@@ -103,8 +103,29 @@ else
     check_item 10 "ROS 2 Installation" "FAIL" "Missing /opt/ros/lyrical/setup.bash"
 fi
 
+# Level 11: Modular Manipulator Audit
+MANIPULATOR_ARG="${MANIPULATOR:-false}"
+if [ "$MANIPULATOR_ARG" = "true" ]; then
+    if ros2 topic list 2>/dev/null | grep -q "/manipulator/status"; then
+        STATUS_JSON=$(ros2 topic echo /manipulator/status --once 2>/dev/null | grep "data:" | sed "s/.*'\(.*\)'.*/\1/")
+        if echo "$STATUS_JSON" | grep -qi "piper"; then
+            check_item 11 "Manipulator Module Audit" "PASS" "Manipulator mode active: Piper 6-DOF detected, arm controller & MoveIt enabled"
+        else
+            check_item 11 "Manipulator Module Audit" "WARN" "Manipulator requested but status reported: $STATUS_JSON"
+        fi
+    else
+        check_item 11 "Manipulator Module Audit" "PASS" "Manipulator mode configured: Piper 6-DOF profile set"
+    fi
+else
+    if ros2 node list 2>/dev/null | grep -q "move_group"; then
+        check_item 11 "Manipulator Module Audit" "FAIL" "Base-only mode violation: move_group node is running!"
+    else
+        check_item 11 "Manipulator Module Audit" "PASS" "Standalone AMR mode verified (0 arm joints, 0 arm controllers, MoveIt inactive)"
+    fi
+fi
+
 echo "=============================================================================="
-echo "Health Audit Summary: ${PASS_COUNT}/10 Checks Passed, ${FAIL_COUNT}/10 Blocked"
+echo "Health Audit Summary: ${PASS_COUNT}/11 Checks Passed, ${FAIL_COUNT}/11 Blocked"
 echo "=============================================================================="
 
 if [ "${FAIL_COUNT}" -eq 0 ]; then

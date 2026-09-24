@@ -1,0 +1,33 @@
+# Ranger Mini Autonomous Mobile Robot (AMR) - Base-Only Profile
+platform:
+  name: "ranger_mini"
+  type: "4wis_amr"
+  description: "AgileX Ranger Mini 4WIS Standalone Mobile Robot"
+
+manipulator:
+  enabled: false
+  type: "none"
+  interface: ""
+  port: ""
+  baudrate: 0
+  can_interface: ""
+
+payload:
+  max_capacity_kg: 50.0
+  rated_payload_kg: 35.0
+  chassis_weight_kg: 25.0
+
+safety:
+  emergency_stop_behavior: "hard_stop"
+  obstacle_standoff_distance_m: 0.35
+  max_linear_speed_mps: 1.5
+  max_angular_speed_radps: 2.0
+
+capabilities:
+  can_navigate: true
+  can_slam: true
+  can_dock: true
+  can_pick: false
+  can_place: false
+  can_move_arm: false
+  can_inspect: true
