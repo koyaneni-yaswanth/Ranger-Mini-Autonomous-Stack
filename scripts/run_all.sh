@@ -173,3 +173,14 @@ echo "Recent Orchestrator Log Output:"
 echo "------------------------------------------------------------------------------"
 tail -n 25 /tmp/task_orchestrator.log || true
 echo "=============================================================================="
+
+# In GUI mode, keep the windows alive for inspection
+if [ "$GUI" = "true" ]; then
+    echo ""
+    echo "=============================================================================="
+    echo " [VISUAL INSPECTION ACTIVE]"
+    echo " Gazebo 3D simulation and RViz2 visualizer remain open on your desktop."
+    echo " Press [Enter] or Ctrl+C to close all windows and stop simulation..."
+    echo "=============================================================================="
+    read -r || true
+fi
