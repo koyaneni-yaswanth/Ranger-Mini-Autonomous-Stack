@@ -1,18 +1,14 @@
-# NVIDIA Jetson AGX / Orin Deployment Guide
+# NVIDIA Jetson Orin Deployment Guide
 
-## 1. Hardware Prerequisites
+## 1. Target Hardware
 - NVIDIA Jetson AGX Orin (32GB/64GB) or Orin Nano (8GB).
-- JetPack 6.0+ (Ubuntu 22.04/24.04/26.04 rootfs).
-- Dual CAN Transceiver (Waveshare Isolated Dual CAN or SPI MCP2517FD).
-- RealSense D435i & Livox Mid-360 LiDAR.
+- JetPack 6.x (Ubuntu 22.04/24.04/26.04 rootfs) with TensorRT, CUDA 12, and cuDNN.
+- Dual-channel isolated CAN transceiver (Waveshare or SPI MCP2517FD).
 
-## 2. Jetson System Setup Script
-Run the automated deployment script:
+## 2. Setup Commands
 ```bash
-make jetson-setup
+./scripts/setup_jetson.sh
+./scripts/build.sh
+./scripts/health_check.sh
+./scripts/run_jarvis.sh
 ```
-This configures:
-- Realtime CPU governor (`nvpmodel -m 0` & `jetson_clocks`).
-- SocketCAN kernel modules (`can`, `can_raw`, `mttcan`).
-- USB device udev rules for RealSense and CAN adapters.
-- FastDDS network buffer optimizations.

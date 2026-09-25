@@ -84,3 +84,15 @@ run-all-gui:
 
 gui:
 	@GUI=true bash $(PROJECT_DIR)/scripts/run_all.sh
+
+jarvis:
+	@bash $(PROJECT_DIR)/scripts/run_jarvis.sh
+
+gazebo:
+	@bash $(PROJECT_DIR)/scripts/run_gazebo.sh
+
+isaac:
+	@bash $(PROJECT_DIR)/scripts/run_isaac.sh
+
+train:
+	@bash $(PROJECT_DIR)/scripts/train.sh

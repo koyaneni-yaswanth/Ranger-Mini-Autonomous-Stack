@@ -1,0 +1,48 @@
+# NVIDIA Isaac Sim Omniverse ROS 2 Bridge Configuration
+# Standardized mapping between USD Stage and ROS 2 Lyrical middleware
+
+node:
+  name: "isaac_ros2_bridge"
+  domain_id: 10
+
+publishers:
+  clock:
+    topic: "/clock"
+    type: "rosgraph_msgs/msg/Clock"
+    rate_hz: 60
+
+  joint_states:
+    topic: "/joint_states"
+    type: "sensor_msgs/msg/JointState"
+    rate_hz: 50
+
+  odometry:
+    topic: "/odom"
+    type: "nav_msgs/msg/Odometry"
+    rate_hz: 50
+
+  rgb_camera:
+    topic: "/camera"
+    type: "sensor_msgs/msg/Image"
+    encoding: "rgb8"
+    rate_hz: 30
+
+  depth_camera:
+    topic: "/camera/depth_image"
+    type: "sensor_msgs/msg/Image"
+    encoding: "16UC1"
+    rate_hz: 30
+
+  lidar:
+    topic: "/lidar/points"
+    type: "sensor_msgs/msg/PointCloud2"
+    rate_hz: 20
+
+subscribers:
+  cmd_vel:
+    topic: "/cmd_vel"
+    type: "geometry_msgs/msg/Twist"
+
+  arm_trajectory:
+    topic: "/piper_arm_controller/joint_trajectory"
+    type: "trajectory_msgs/msg/JointTrajectory"

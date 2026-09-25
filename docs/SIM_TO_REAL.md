@@ -1,13 +1,12 @@
 # Simulation-to-Real Transfer & Parity
 
 ## 1. Parity Matrix
-| Subsystem | Gazebo Harmonic Simulation | Physical Hardware Platform | Parity Mechanism |
+| Component | Gazebo Harmonic | Isaac Sim 4.x | Real Jetson Orin |
 | :--- | :--- | :--- | :--- |
-| Mobile Base Control | `gz_ros2_control` Diff/Omni plugin | AgileX CAN SDK (`can0`) | Identical `/cmd_vel` & Odometry API |
-| Arm Control | `joint_trajectory_controller` | Piper CAN SDK (`can1`) | Identical JointTrajectory topic interface |
-| 3D LiDAR | `ros_gz_sim` LiDAR Sensor | Livox Mid-360 Ethernet Driver | PointCloud2 & LaserScan topics |
-| RGB-D Vision | `ros_gz_sim` Depth Camera | RealSense D435i USB Driver | sensor_msgs/Image (RGB + 16UC1 Depth) |
-| TF Tree | Robot State Publisher | Robot State Publisher | Exact identical URDF / Xacro source |
+| Base Control | `gz_ros2_control` | Omniverse ROS 2 Bridge | AgileX CAN SDK (`can0`) |
+| Arm Control | `joint_trajectory_controller` | Omniverse Articulation | Piper CAN SDK (`can1`) |
+| Perception | Synthetic RGB-D & LiDAR | RTX Raytraced USD Sensors | RealSense D435i & Livox Mid-360 |
+| Interfaces | Identical `/cmd_vel`, `/odom`, `/joint_trajectory`, `/camera/*`, `/lidar/points` topics |
 
-## 2. Zero Fabrication Policy
-All hardware scripts (`check_hardware.sh`, `run_real.sh`) check for physical CAN interfaces and hardware USB devices. If real hardware is absent, the system explicitly reports `[BLOCKED]` and falls back cleanly to simulation.
+## 2. Zero-Fabrication Enforcement
+Hardware validation scripts verify physical CAN bus interfaces and USB sensors. If unattached, scripts report `[BLOCKED]` and fall back cleanly to simulation.
