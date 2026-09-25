@@ -19,5 +19,10 @@ source /opt/ros/lyrical/setup.bash
 source "$WS_DIR/install/setup.bash"
 python3 "$PROJECT_DIR/tests/test_ai_task_execution.py"
 
+echo "------------------------------------------------------------------------------"
+echo " RUNNING TASK / SKILL LAYER & ROBOT ABSTRACTION SUITE"
+echo "------------------------------------------------------------------------------"
+python3 "$PROJECT_DIR/tests/test_skills_and_hal.py"
+
 echo "=============================================================================="
 echo "[PASS] All pre-flight, safety policy, and automated tests completed successfully."
