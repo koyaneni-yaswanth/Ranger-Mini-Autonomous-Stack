@@ -16,30 +16,35 @@ source /opt/ros/lyrical/setup.bash
 source "$WS_DIR/install/setup.bash"
 
 echo "------------------------------------------------------------------------------"
-echo " [TEST 1/5] RUNNING AI TASK EXECUTION & SAFETY VALIDATION SUITE"
+echo " [TEST 1/6] RUNNING AI TASK EXECUTION & SAFETY VALIDATION SUITE"
 echo "------------------------------------------------------------------------------"
 python3 "$PROJECT_DIR/tests/test_ai_task_execution.py"
 
 echo "------------------------------------------------------------------------------"
-echo " [TEST 2/5] RUNNING TASK / SKILL LAYER & ROBOT ABSTRACTION SUITE"
+echo " [TEST 2/6] RUNNING TASK / SKILL LAYER & ROBOT ABSTRACTION SUITE"
 echo "------------------------------------------------------------------------------"
 python3 "$PROJECT_DIR/tests/test_skills_and_hal.py"
 
 echo "------------------------------------------------------------------------------"
-echo " [TEST 3/5] RUNNING JARVIS COGNITIVE BRAIN & PLANNING SUITE"
+echo " [TEST 3/6] RUNNING JARVIS COGNITIVE BRAIN & PLANNING SUITE"
 echo "------------------------------------------------------------------------------"
 python3 "$PROJECT_DIR/tests/test_jarvis_brain.py"
 
 echo "------------------------------------------------------------------------------"
-echo " [TEST 4/5] RUNNING VOICE & MULTI-TIER MEMORY SUITES"
+echo " [TEST 4/6] RUNNING VOICE & MULTI-TIER MEMORY SUITES"
 echo "------------------------------------------------------------------------------"
 python3 "$PROJECT_DIR/tests/test_voice_system.py"
 python3 "$PROJECT_DIR/tests/test_memory_system.py"
 
 echo "------------------------------------------------------------------------------"
-echo " [TEST 5/5] RUNNING INDEPENDENT SAFETY SUPERVISOR SUITE"
+echo " [TEST 5/6] RUNNING INDEPENDENT SAFETY SUPERVISOR SUITE"
 echo "------------------------------------------------------------------------------"
 python3 "$PROJECT_DIR/tests/test_safety_manager.py"
 
+echo "------------------------------------------------------------------------------"
+echo " [TEST 6/6] RUNNING SECTION 69 TEST MATRIX & SECTION 65 FAILURE MODES"
+echo "------------------------------------------------------------------------------"
+python3 "$PROJECT_DIR/tests/test_section_69_matrix.py"
+
 echo "=============================================================================="
-echo "[PASS] All pre-flight, safety, cognitive, and skill test suites completed successfully."
+echo "[PASS] All pre-flight, safety, cognitive, skill, and matrix test suites completed successfully."
