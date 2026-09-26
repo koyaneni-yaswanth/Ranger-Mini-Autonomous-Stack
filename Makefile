@@ -3,12 +3,13 @@ SHELL := /bin/bash
 PROJECT_DIR := $(CURDIR)
 WS_DIR := $(abspath $(PROJECT_DIR)/../ranger_mini_lyrical_2604_ws)
 
-.PHONY: all build clean stop test sim base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli
+.PHONY: all setup build clean stop test lint audit sim sim-test navigation-test manipulation-test voice-test jarvis-test hardware-check hardware-test replay doctor base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli jarvis gazebo isaac train
 
 all: build
 
-check:
-	@bash $(PROJECT_DIR)/scripts/check_environment.sh
+# Section 50 Master Commands
+setup:
+	@bash $(PROJECT_DIR)/scripts/setup_jetson.sh
 
 build:
 	@bash $(PROJECT_DIR)/scripts/build.sh
@@ -16,14 +17,57 @@ build:
 clean:
 	@bash $(PROJECT_DIR)/scripts/clean.sh
 
-stop:
-	@bash $(PROJECT_DIR)/scripts/stop.sh
-
 test:
 	@bash $(PROJECT_DIR)/scripts/test.sh
 
+lint:
+	@bash $(PROJECT_DIR)/scripts/lint.sh
+
+audit:
+	@echo "=============================================================================="
+	@echo " JARVIS-X FORENSIC REPOSITORY AUDIT"
+	@echo "=============================================================================="
+	@cat $(PROJECT_DIR)/docs/ARCHITECTURE_AUDIT.md
+	@echo ""
+	@cat $(PROJECT_DIR)/docs/HARDWARE_STATUS.md
+
 sim:
 	@bash $(PROJECT_DIR)/scripts/run_sim.sh
+
+sim-test:
+	@python3 $(PROJECT_DIR)/tests/test_skills_and_hal.py
+
+navigation-test:
+	@python3 $(PROJECT_DIR)/tests/test_costmap_bounds_regression.py
+
+manipulation-test:
+	@python3 $(PROJECT_DIR)/tests/test_skills_and_hal.py
+
+voice-test:
+	@python3 $(PROJECT_DIR)/tests/test_voice_system.py
+
+jarvis-test:
+	@python3 $(PROJECT_DIR)/tests/test_section_69_matrix.py
+
+hardware-check:
+	@bash $(PROJECT_DIR)/scripts/hardware_health_check.sh
+
+hardware-test:
+	@bash $(PROJECT_DIR)/scripts/check_hardware.sh
+
+replay:
+	@echo "Replaying latest recorded mission rosbag2..."
+	@if [ -d "$(PROJECT_DIR)/rosbag2" ]; then ros2 bag play $(PROJECT_DIR)/rosbag2; else echo "No active rosbag2 directory found. Launching synthetic replay test..."; python3 $(PROJECT_DIR)/scripts/run_winning_demos.py; fi
+
+doctor:
+	@bash $(PROJECT_DIR)/scripts/doctor.sh
+
+# Operational & Component Commands
+check:
+	@bash $(PROJECT_DIR)/scripts/check_environment.sh
+
+stop:
+	@bash $(PROJECT_DIR)/scripts/stop.sh
 
 base-only:
 	@bash $(PROJECT_DIR)/scripts/run_base_only.sh
