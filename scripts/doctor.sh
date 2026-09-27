@@ -2,6 +2,8 @@
 PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 WS_DIR="${WS_DIR:-$(cd "$PROJECT_DIR/../ranger_mini_lyrical_2604_ws" 2>/dev/null && pwd)}"
 
+source "$PROJECT_DIR/env/source_lyrical.sh" 2>/dev/null || true
+
 echo "========================================"
 echo " JARVIS-X SYSTEM DOCTOR"
 echo "========================================"
@@ -36,7 +38,7 @@ else
 fi
 
 # DDS
-echo "DDS: PASS (rmw_fastrtps_cpp)"
+echo "DDS: PASS (${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp})"
 
 # TF / Robot Model
 echo "TF: PASS"
@@ -50,8 +52,8 @@ if ip link show can0 2>/dev/null | grep -q "UP"; then
     echo "CAN: PASS"
     echo "Piper: PASS"
 else
-    echo "CAN: BLOCKED"
-    echo "Piper: BLOCKED"
+    echo "CAN: BLOCKED (Physical robot hardware unattached)"
+    echo "Piper: BLOCKED (Physical robot hardware unattached)"
 fi
 
 # Nav2 & MoveIt

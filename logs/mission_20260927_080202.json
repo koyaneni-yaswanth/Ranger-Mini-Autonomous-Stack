@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-09-27T08:02:02.546996",
+  "mission_id": "canonical_red_cube_pick_and_place",
+  "user_command": "JARVIS, find the red cube, pick it up, and put it on the table",
+  "task_schema": {
+    "action": "pick_and_place",
+    "target_object": {
+      "class": "cube",
+      "color": "red"
+    },
+    "destination": {
+      "station_id": "target_station"
+    }
+  },
+  "execution_summary": {
+    "status": "SUCCESS",
+    "verified_stages": [
+      "Stage 1: Base Traction & Holonomic 4WIS Kinematics",
+      "Stage 2: Nav2 Autonomous Navigation",
+      "Stage 3: Piper 6-DOF Physical Trajectory Execution",
+      "Stage 4: AI Multi-spectral 3D Spatial Localization",
+      "Stage 5: Full 17-State Autonomous Embodied Mission"
+    ],
+    "average_mission_duration_s": 19.85,
+    "overall_grasp_success_rate": "100.0%"
+  }
+}

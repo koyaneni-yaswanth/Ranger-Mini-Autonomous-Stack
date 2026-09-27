@@ -3,11 +3,48 @@ SHELL := /bin/bash
 PROJECT_DIR := $(CURDIR)
 WS_DIR := $(abspath $(PROJECT_DIR)/../ranger_mini_lyrical_2604_ws)
 
-.PHONY: all setup build clean stop test lint audit sim sim-test navigation-test manipulation-test voice-test jarvis-test hardware-check hardware-test replay doctor base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli jarvis gazebo isaac train
+.PHONY: all setup build clean stop test lint audit sim-base sim sim-debug demo sim-doctor simulation-e2e-test gazebo-failures-test sim-test navigation-test manipulation-test voice-test jarvis-test hardware-check hardware-test replay doctor base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli jarvis gazebo isaac train run-all run-all-gui gui
 
 all: build
 
-# Section 50 Master Commands
+# Master Simulation & Demonstration Commands (Prompt Section 3, 25, 26, 27, 30, 31)
+sim-base:
+	@bash $(PROJECT_DIR)/scripts/run_sim_base.sh
+
+sim-nav:
+	@bash $(PROJECT_DIR)/scripts/run_sim_nav.sh
+
+sim-manipulation:
+	@bash $(PROJECT_DIR)/scripts/run_sim_manipulation.sh
+
+sim-perception:
+	@bash $(PROJECT_DIR)/scripts/run_sim_perception.sh
+
+sim-full:
+	@bash $(PROJECT_DIR)/scripts/run_sim_full.sh
+
+performance-test:
+	@python3 $(PROJECT_DIR)/scripts/run_performance_test.py
+
+sim:
+	@bash $(PROJECT_DIR)/scripts/run_sim_gui.sh
+
+sim-debug:
+	@bash $(PROJECT_DIR)/scripts/sim_debug.sh
+
+demo:
+	@bash $(PROJECT_DIR)/scripts/run_demo.sh
+
+sim-doctor:
+	@bash $(PROJECT_DIR)/scripts/sim_doctor.sh
+
+simulation-e2e-test:
+	@python3 $(PROJECT_DIR)/tests/test_simulation_e2e.py
+
+gazebo-failures-test:
+	@python3 $(PROJECT_DIR)/tests/test_gazebo_failures.py
+
+# Platform Lifecycle Commands
 setup:
 	@bash $(PROJECT_DIR)/scripts/setup_jetson.sh
 
@@ -31,8 +68,8 @@ audit:
 	@echo ""
 	@cat $(PROJECT_DIR)/docs/HARDWARE_STATUS.md
 
-sim:
-	@bash $(PROJECT_DIR)/scripts/run_sim.sh
+doctor:
+	@bash $(PROJECT_DIR)/scripts/doctor.sh
 
 sim-test:
 	@python3 $(PROJECT_DIR)/tests/test_skills_and_hal.py
@@ -58,9 +95,6 @@ hardware-test:
 replay:
 	@echo "Replaying latest recorded mission rosbag2..."
 	@if [ -d "$(PROJECT_DIR)/rosbag2" ]; then ros2 bag play $(PROJECT_DIR)/rosbag2; else echo "No active rosbag2 directory found. Launching synthetic replay test..."; python3 $(PROJECT_DIR)/scripts/run_winning_demos.py; fi
-
-doctor:
-	@bash $(PROJECT_DIR)/scripts/doctor.sh
 
 # Operational & Component Commands
 check:

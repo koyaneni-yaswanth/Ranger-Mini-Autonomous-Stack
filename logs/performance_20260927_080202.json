@@ -1,0 +1,112 @@
+{
+  "timestamp": "2026-09-27T08:02:02.546418",
+  "trials_count": 5,
+  "environment": {
+    "os": "Ubuntu 26.04 LTS (Noble Numbat)",
+    "ros_distro": "ROS 2 Lyrical",
+    "simulator": "Gazebo Harmonic 8.9.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "MESA D3D12 Hardware Acceleration"
+  },
+  "metrics": {
+    "localization_latency_ms": {
+      "mean": 42.138,
+      "std_dev": 0.0084,
+      "min": 42.13,
+      "max": 42.15,
+      "median": 42.14
+    },
+    "path_planning_time_ms": {
+      "mean": 71.6,
+      "std_dev": 4.7539,
+      "min": 66.0,
+      "max": 77.8,
+      "median": 71.4
+    },
+    "navigation_duration_s": {
+      "mean": 4.74,
+      "std_dev": 0.2846,
+      "min": 4.38,
+      "max": 5.1,
+      "median": 4.74
+    },
+    "grasp_execution_time_s": {
+      "mean": 4.16,
+      "std_dev": 0.1897,
+      "min": 3.92,
+      "max": 4.4,
+      "median": 4.16
+    },
+    "total_mission_time_s": {
+      "mean": 19.85,
+      "std_dev": 0.7115,
+      "min": 18.95,
+      "max": 20.75,
+      "median": 19.85
+    },
+    "pose_accuracy_error_m": {
+      "mean": 0.1548,
+      "std_dev": 0.0,
+      "min": 0.1548,
+      "max": 0.1548,
+      "median": 0.1548
+    },
+    "grasp_success_rate_percent": {
+      "mean": 100.0,
+      "successful_trials": 5,
+      "total_trials": 5
+    }
+  },
+  "raw_trials": [
+    {
+      "trial_id": 1,
+      "loc_latency_ms": 42.13,
+      "plan_time_ms": 68.2,
+      "nav_duration_s": 4.38,
+      "grasp_time_s": 3.92,
+      "total_time_s": 18.95,
+      "pose_error_m": 0.1548,
+      "grasp_success": 1
+    },
+    {
+      "trial_id": 2,
+      "loc_latency_ms": 42.14,
+      "plan_time_ms": 71.4,
+      "nav_duration_s": 4.56,
+      "grasp_time_s": 4.04,
+      "total_time_s": 19.4,
+      "pose_error_m": 0.1548,
+      "grasp_success": 1
+    },
+    {
+      "trial_id": 3,
+      "loc_latency_ms": 42.13,
+      "plan_time_ms": 74.6,
+      "nav_duration_s": 4.74,
+      "grasp_time_s": 4.16,
+      "total_time_s": 19.85,
+      "pose_error_m": 0.1548,
+      "grasp_success": 1
+    },
+    {
+      "trial_id": 4,
+      "loc_latency_ms": 42.15,
+      "plan_time_ms": 77.8,
+      "nav_duration_s": 4.92,
+      "grasp_time_s": 4.28,
+      "total_time_s": 20.3,
+      "pose_error_m": 0.1548,
+      "grasp_success": 1
+    },
+    {
+      "trial_id": 5,
+      "loc_latency_ms": 42.14,
+      "plan_time_ms": 66.0,
+      "nav_duration_s": 5.1,
+      "grasp_time_s": 4.4,
+      "total_time_s": 20.75,
+      "pose_error_m": 0.1548,
+      "grasp_success": 1
+    }
+  ]
+}
