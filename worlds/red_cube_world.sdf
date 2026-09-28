@@ -12,6 +12,7 @@
       <render_engine>ogre</render_engine>
     </plugin>
     <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
 
     <!-- Ambient Lighting and Directional Sun -->
     <light type="directional" name="sun">
@@ -85,6 +86,12 @@
     <!-- Physical Manipulation Pick Target: Bright Red Industrial Cube -->
     <model name="target_cube_red">
       <pose>1.45 0.0 0.33 0 0 0</pose>
+      <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <publish_model_pose>true</publish_model_pose>
+        <use_pose_vector_msg>false</use_pose_vector_msg>
+        <update_frequency>20</update_frequency>
+      </plugin>
       <link name="cube_link">
         <inertial>
           <mass>0.15</mass>

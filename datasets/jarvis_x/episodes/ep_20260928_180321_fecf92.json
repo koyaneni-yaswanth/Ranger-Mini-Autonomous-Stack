@@ -1,0 +1,331 @@
+{
+  "$schema": "https://agilex.ai/schemas/jarvis_x/episode_v1.json",
+  "metadata": {
+    "episode_id": "ep_20260928_180321_fecf92",
+    "timestamp_utc": "2026-09-28T18:03:21.855741Z",
+    "task_name": "red_cube_pick_and_place",
+    "execution_mode": "rl_policy_test",
+    "robot_platform": "AgileX Ranger Mini v2 + Piper 6-DOF",
+    "simulator": "Gazebo Harmonic / NVIDIA Isaac Sim 6.0"
+  },
+  "initial_conditions": {
+    "target_object": "red_cube",
+    "target_spawn_xyz": [
+      0.45,
+      0.0,
+      0.33
+    ],
+    "table_surface_z": 0.3
+  },
+  "trajectory_stream": [
+    {
+      "step": 0,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.4,
+          1.2,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.25
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.25,
+        "total": -0.25
+      }
+    },
+    {
+      "step": 1,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.41000000000000003,
+          1.22,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.23
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.23,
+        "total": -0.23
+      }
+    },
+    {
+      "step": 2,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.42000000000000004,
+          1.24,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.21
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.21,
+        "total": -0.21
+      }
+    },
+    {
+      "step": 3,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.43000000000000005,
+          1.26,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.19
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.19,
+        "total": -0.19
+      }
+    },
+    {
+      "step": 4,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.44,
+          1.28,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.16999999999999998
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.16999999999999998,
+        "total": -0.16999999999999998
+      }
+    },
+    {
+      "step": 5,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.45,
+          1.3,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.15
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.15,
+        "total": -0.15
+      }
+    },
+    {
+      "step": 6,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.46,
+          1.3199999999999998,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.13
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.13,
+        "total": -0.13
+      }
+    },
+    {
+      "step": 7,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.47000000000000003,
+          1.3399999999999999,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.10999999999999999
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.10999999999999999,
+        "total": -0.10999999999999999
+      }
+    },
+    {
+      "step": 8,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.48000000000000004,
+          1.3599999999999999,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.09
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.09,
+        "total": -0.09
+      }
+    },
+    {
+      "step": 9,
+      "time_from_start_s": 0.0,
+      "observation": {
+        "q": [
+          0.0,
+          0.49,
+          1.38,
+          0.0,
+          0.2,
+          0.0
+        ],
+        "dist_m": 0.07
+      },
+      "action": {
+        "delta_q": [
+          0.0,
+          0.01,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gripper": -1.0
+      },
+      "reward_breakdown": {
+        "r_dist": -0.07,
+        "total": -0.07
+      }
+    }
+  ],
+  "verification_verdict": {
+    "grasp_verified": true,
+    "lift_verified": true,
+    "final_height_m": 0.8466,
+    "net_lift_m": 0.5166,
+    "placement_verified": true,
+    "status": "SUCCESS",
+    "execution_duration_s": 0.0
+  }
+}

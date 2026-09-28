@@ -1,0 +1,502 @@
+[
+  {
+    "iteration": 1,
+    "mean_reward": -0.792,
+    "success_rate": 0.0,
+    "policy_loss": -0.0045,
+    "value_loss": 48.4787,
+    "entropy": 6.4395,
+    "fps": 1791,
+    "elapsed_s": 2.3
+  },
+  {
+    "iteration": 2,
+    "mean_reward": -1.298,
+    "success_rate": 0.0,
+    "policy_loss": -0.0033,
+    "value_loss": 172.7639,
+    "entropy": 6.4524,
+    "fps": 2234,
+    "elapsed_s": 3.7
+  },
+  {
+    "iteration": 3,
+    "mean_reward": -1.952,
+    "success_rate": 0.0,
+    "policy_loss": -0.0072,
+    "value_loss": 412.2967,
+    "entropy": 6.4616,
+    "fps": 2470,
+    "elapsed_s": 5.0
+  },
+  {
+    "iteration": 4,
+    "mean_reward": -0.717,
+    "success_rate": 0.0,
+    "policy_loss": -0.0145,
+    "value_loss": 17.1592,
+    "entropy": 6.4738,
+    "fps": 2561,
+    "elapsed_s": 6.4
+  },
+  {
+    "iteration": 5,
+    "mean_reward": -0.364,
+    "success_rate": 0.0,
+    "policy_loss": -0.0131,
+    "value_loss": 22.9997,
+    "entropy": 6.4929,
+    "fps": 2619,
+    "elapsed_s": 7.8
+  },
+  {
+    "iteration": 6,
+    "mean_reward": -0.566,
+    "success_rate": 0.0,
+    "policy_loss": -0.0085,
+    "value_loss": 45.5749,
+    "entropy": 6.5075,
+    "fps": 2647,
+    "elapsed_s": 9.3
+  },
+  {
+    "iteration": 7,
+    "mean_reward": -0.337,
+    "success_rate": 0.0,
+    "policy_loss": -0.0155,
+    "value_loss": 8.9108,
+    "entropy": 6.5308,
+    "fps": 2653,
+    "elapsed_s": 10.8
+  },
+  {
+    "iteration": 8,
+    "mean_reward": 0.391,
+    "success_rate": 0.0,
+    "policy_loss": 0.0098,
+    "value_loss": 22.5614,
+    "entropy": 6.5599,
+    "fps": 2670,
+    "elapsed_s": 12.3
+  },
+  {
+    "iteration": 9,
+    "mean_reward": 0.312,
+    "success_rate": 0.0,
+    "policy_loss": 0.0007,
+    "value_loss": 14.349,
+    "entropy": 6.5728,
+    "fps": 2694,
+    "elapsed_s": 13.7
+  },
+  {
+    "iteration": 10,
+    "mean_reward": -0.029,
+    "success_rate": 0.0,
+    "policy_loss": -0.005,
+    "value_loss": 7.4856,
+    "entropy": 6.5989,
+    "fps": 2704,
+    "elapsed_s": 15.1
+  },
+  {
+    "iteration": 11,
+    "mean_reward": 0.581,
+    "success_rate": 0.0,
+    "policy_loss": 0.0441,
+    "value_loss": 176.5769,
+    "entropy": 6.6422,
+    "fps": 2703,
+    "elapsed_s": 16.7
+  },
+  {
+    "iteration": 12,
+    "mean_reward": 0.616,
+    "success_rate": 0.0,
+    "policy_loss": -0.004,
+    "value_loss": 264.3927,
+    "entropy": 6.6573,
+    "fps": 2723,
+    "elapsed_s": 18.0
+  },
+  {
+    "iteration": 13,
+    "mean_reward": 0.044,
+    "success_rate": 0.0,
+    "policy_loss": -0.0047,
+    "value_loss": 33.2588,
+    "entropy": 6.661,
+    "fps": 2733,
+    "elapsed_s": 19.5
+  },
+  {
+    "iteration": 14,
+    "mean_reward": 0.191,
+    "success_rate": 0.0,
+    "policy_loss": -0.0091,
+    "value_loss": 5.1071,
+    "entropy": 6.661,
+    "fps": 2734,
+    "elapsed_s": 21.0
+  },
+  {
+    "iteration": 15,
+    "mean_reward": 0.144,
+    "success_rate": 0.0,
+    "policy_loss": -0.0082,
+    "value_loss": 7.0727,
+    "entropy": 6.6656,
+    "fps": 2751,
+    "elapsed_s": 22.3
+  },
+  {
+    "iteration": 16,
+    "mean_reward": 0.031,
+    "success_rate": 0.0,
+    "policy_loss": 0.0135,
+    "value_loss": 37.9012,
+    "entropy": 6.6868,
+    "fps": 2762,
+    "elapsed_s": 23.7
+  },
+  {
+    "iteration": 17,
+    "mean_reward": 0.322,
+    "success_rate": 0.0,
+    "policy_loss": -0.0041,
+    "value_loss": 11.5296,
+    "entropy": 6.6958,
+    "fps": 2772,
+    "elapsed_s": 25.1
+  },
+  {
+    "iteration": 18,
+    "mean_reward": 0.642,
+    "success_rate": 0.0,
+    "policy_loss": -0.0046,
+    "value_loss": 148.1358,
+    "entropy": 6.6977,
+    "fps": 2766,
+    "elapsed_s": 26.7
+  },
+  {
+    "iteration": 19,
+    "mean_reward": 1.496,
+    "success_rate": 0.003,
+    "policy_loss": -0.0029,
+    "value_loss": 1304.0431,
+    "entropy": 6.6984,
+    "fps": 2766,
+    "elapsed_s": 28.1
+  },
+  {
+    "iteration": 20,
+    "mean_reward": 0.341,
+    "success_rate": 0.0,
+    "policy_loss": -0.0058,
+    "value_loss": 12.858,
+    "entropy": 6.6986,
+    "fps": 2766,
+    "elapsed_s": 29.6
+  },
+  {
+    "iteration": 21,
+    "mean_reward": 1.253,
+    "success_rate": 0.001,
+    "policy_loss": -0.0005,
+    "value_loss": 968.8768,
+    "entropy": 6.6987,
+    "fps": 2774,
+    "elapsed_s": 31.0
+  },
+  {
+    "iteration": 22,
+    "mean_reward": 1.522,
+    "success_rate": 0.003,
+    "policy_loss": -0.0048,
+    "value_loss": 1363.3096,
+    "entropy": 6.699,
+    "fps": 2761,
+    "elapsed_s": 32.6
+  },
+  {
+    "iteration": 23,
+    "mean_reward": 0.345,
+    "success_rate": 0.0,
+    "policy_loss": -0.005,
+    "value_loss": 89.8201,
+    "entropy": 6.6997,
+    "fps": 2768,
+    "elapsed_s": 34.0
+  },
+  {
+    "iteration": 24,
+    "mean_reward": 1.103,
+    "success_rate": 0.0,
+    "policy_loss": -0.0005,
+    "value_loss": 634.1791,
+    "entropy": 6.7014,
+    "fps": 2776,
+    "elapsed_s": 35.4
+  },
+  {
+    "iteration": 25,
+    "mean_reward": 2.531,
+    "success_rate": 0.005,
+    "policy_loss": -0.002,
+    "value_loss": 2720.1792,
+    "entropy": 6.7022,
+    "fps": 2774,
+    "elapsed_s": 36.9
+  },
+  {
+    "iteration": 26,
+    "mean_reward": 0.254,
+    "success_rate": 0.0,
+    "policy_loss": -0.0055,
+    "value_loss": 11.3369,
+    "entropy": 6.7034,
+    "fps": 2777,
+    "elapsed_s": 38.3
+  },
+  {
+    "iteration": 27,
+    "mean_reward": 1.134,
+    "success_rate": 0.001,
+    "policy_loss": -0.0009,
+    "value_loss": 680.7184,
+    "entropy": 6.7074,
+    "fps": 2778,
+    "elapsed_s": 39.8
+  },
+  {
+    "iteration": 28,
+    "mean_reward": 2.583,
+    "success_rate": 0.004,
+    "policy_loss": -0.0023,
+    "value_loss": 2650.8434,
+    "entropy": 6.7091,
+    "fps": 2772,
+    "elapsed_s": 41.4
+  },
+  {
+    "iteration": 29,
+    "mean_reward": 0.592,
+    "success_rate": 0.001,
+    "policy_loss": -0.0057,
+    "value_loss": 181.2226,
+    "entropy": 6.7097,
+    "fps": 2772,
+    "elapsed_s": 42.8
+  },
+  {
+    "iteration": 30,
+    "mean_reward": 0.972,
+    "success_rate": 0.001,
+    "policy_loss": -0.0014,
+    "value_loss": 463.9244,
+    "entropy": 6.7114,
+    "fps": 2939,
+    "elapsed_s": 41.8
+  },
+  {
+    "iteration": 31,
+    "mean_reward": 2.16,
+    "success_rate": 0.003,
+    "policy_loss": -0.0007,
+    "value_loss": 2130.7715,
+    "entropy": 6.7128,
+    "fps": 2933,
+    "elapsed_s": 43.3
+  },
+  {
+    "iteration": 32,
+    "mean_reward": 0.845,
+    "success_rate": 0.001,
+    "policy_loss": -0.0051,
+    "value_loss": 423.9923,
+    "entropy": 6.7141,
+    "fps": 2927,
+    "elapsed_s": 44.8
+  },
+  {
+    "iteration": 33,
+    "mean_reward": 1.636,
+    "success_rate": 0.002,
+    "policy_loss": -0.0007,
+    "value_loss": 1450.8678,
+    "entropy": 6.7163,
+    "fps": 2927,
+    "elapsed_s": 46.2
+  },
+  {
+    "iteration": 34,
+    "mean_reward": 2.173,
+    "success_rate": 0.005,
+    "policy_loss": -0.0023,
+    "value_loss": 2083.1401,
+    "entropy": 6.7175,
+    "fps": 2919,
+    "elapsed_s": 47.7
+  },
+  {
+    "iteration": 35,
+    "mean_reward": 0.419,
+    "success_rate": 0.0,
+    "policy_loss": 0.0057,
+    "value_loss": 103.7236,
+    "entropy": 6.7264,
+    "fps": 2909,
+    "elapsed_s": 49.3
+  },
+  {
+    "iteration": 36,
+    "mean_reward": 1.013,
+    "success_rate": 0.001,
+    "policy_loss": 0.0169,
+    "value_loss": 751.8195,
+    "entropy": 6.7461,
+    "fps": 2904,
+    "elapsed_s": 50.8
+  },
+  {
+    "iteration": 37,
+    "mean_reward": 1.459,
+    "success_rate": 0.003,
+    "policy_loss": -0.001,
+    "value_loss": 1197.4478,
+    "entropy": 6.7533,
+    "fps": 2898,
+    "elapsed_s": 52.3
+  },
+  {
+    "iteration": 38,
+    "mean_reward": 0.701,
+    "success_rate": 0.001,
+    "policy_loss": -0.0054,
+    "value_loss": 308.694,
+    "entropy": 6.7586,
+    "fps": 2891,
+    "elapsed_s": 53.8
+  },
+  {
+    "iteration": 39,
+    "mean_reward": 1.179,
+    "success_rate": 0.001,
+    "policy_loss": 0.0016,
+    "value_loss": 957.8547,
+    "entropy": 6.769,
+    "fps": 2888,
+    "elapsed_s": 55.3
+  },
+  {
+    "iteration": 40,
+    "mean_reward": 1.837,
+    "success_rate": 0.003,
+    "policy_loss": -0.0013,
+    "value_loss": 1749.723,
+    "entropy": 6.7731,
+    "fps": 2884,
+    "elapsed_s": 56.8
+  },
+  {
+    "iteration": 41,
+    "mean_reward": 1.115,
+    "success_rate": 0.002,
+    "policy_loss": -0.0028,
+    "value_loss": 833.7014,
+    "entropy": 6.7744,
+    "fps": 2884,
+    "elapsed_s": 58.2
+  },
+  {
+    "iteration": 42,
+    "mean_reward": 1.587,
+    "success_rate": 0.001,
+    "policy_loss": -0.0019,
+    "value_loss": 1290.5835,
+    "entropy": 6.7755,
+    "fps": 2885,
+    "elapsed_s": 59.6
+  },
+  {
+    "iteration": 43,
+    "mean_reward": 3.244,
+    "success_rate": 0.007,
+    "policy_loss": -0.0037,
+    "value_loss": 3262.236,
+    "entropy": 6.776,
+    "fps": 2881,
+    "elapsed_s": 61.1
+  },
+  {
+    "iteration": 44,
+    "mean_reward": 1.199,
+    "success_rate": 0.003,
+    "policy_loss": -0.0047,
+    "value_loss": 781.2864,
+    "entropy": 6.7772,
+    "fps": 2882,
+    "elapsed_s": 62.5
+  },
+  {
+    "iteration": 45,
+    "mean_reward": 1.502,
+    "success_rate": 0.002,
+    "policy_loss": -0.0026,
+    "value_loss": 1245.0833,
+    "entropy": 6.7806,
+    "fps": 2886,
+    "elapsed_s": 63.9
+  },
+  {
+    "iteration": 46,
+    "mean_reward": 2.74,
+    "success_rate": 0.006,
+    "policy_loss": -0.0025,
+    "value_loss": 2456.1624,
+    "entropy": 6.7824,
+    "fps": 2888,
+    "elapsed_s": 65.2
+  },
+  {
+    "iteration": 47,
+    "mean_reward": 1.843,
+    "success_rate": 0.004,
+    "policy_loss": -0.0038,
+    "value_loss": 1340.5405,
+    "entropy": 6.7835,
+    "fps": 2891,
+    "elapsed_s": 66.6
+  },
+  {
+    "iteration": 48,
+    "mean_reward": 2.111,
+    "success_rate": 0.004,
+    "policy_loss": -0.0028,
+    "value_loss": 2218.342,
+    "entropy": 6.7848,
+    "fps": 2896,
+    "elapsed_s": 67.9
+  },
+  {
+    "iteration": 49,
+    "mean_reward": 2.637,
+    "success_rate": 0.005,
+    "policy_loss": -0.0021,
+    "value_loss": 2627.8986,
+    "entropy": 6.7856,
+    "fps": 2895,
+    "elapsed_s": 69.3
+  },
+  {
+    "iteration": 50,
+    "mean_reward": 1.902,
+    "success_rate": 0.004,
+    "policy_loss": -0.0039,
+    "value_loss": 1623.1054,
+    "entropy": 6.7864,
+    "fps": 2899,
+    "elapsed_s": 70.6
+  }
+]

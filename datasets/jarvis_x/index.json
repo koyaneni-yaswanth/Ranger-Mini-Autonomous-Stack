@@ -1,0 +1,48 @@
+{
+  "total_episodes": 6,
+  "successful_episodes": 5,
+  "episodes": [
+    {
+      "episode_id": "ep_20260928_180321_fecf92",
+      "task_name": "red_cube_pick_and_place",
+      "status": "SUCCESS",
+      "duration_s": 0.0,
+      "timestamp": "2026-09-28T18:03:21.855741Z"
+    },
+    {
+      "episode_id": "ep_20260928_180532_7e8d34",
+      "task_name": "rl_red_cube_pick_and_lift",
+      "status": "FAIL",
+      "duration_s": 10.3,
+      "timestamp": "2026-09-28T18:05:32.712384Z"
+    },
+    {
+      "episode_id": "ep_20260928_180656_881968",
+      "task_name": "rl_red_cube_pick_and_lift",
+      "status": "SUCCESS",
+      "duration_s": 15.5,
+      "timestamp": "2026-09-28T18:06:56.322354Z"
+    },
+    {
+      "episode_id": "ep_20260928_180802_f260c1",
+      "task_name": "rl_red_cube_pick_and_lift",
+      "status": "SUCCESS",
+      "duration_s": 15.52,
+      "timestamp": "2026-09-28T18:08:02.269280Z"
+    },
+    {
+      "episode_id": "ep_20260928_180843_a08cde",
+      "task_name": "rl_red_cube_pick_and_lift",
+      "status": "SUCCESS",
+      "duration_s": 15.49,
+      "timestamp": "2026-09-28T18:08:43.900772Z"
+    },
+    {
+      "episode_id": "ep_20260928_181717_ee6f91",
+      "task_name": "rl_red_cube_pick_and_lift",
+      "status": "SUCCESS",
+      "duration_s": 15.5,
+      "timestamp": "2026-09-28T18:17:17.337109Z"
+    }
+  ]
+}

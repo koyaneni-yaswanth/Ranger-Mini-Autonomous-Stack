@@ -183,6 +183,8 @@ def run_e2e_test():
     # 4. Piper Trajectory Test
     print("[4/5] Testing Piper 6-DOF arm trajectory execution...")
     traj = JointTrajectory()
+    traj.header.stamp.sec = 0
+    traj.header.stamp.nanosec = 0
     traj.joint_names = [
         'piper_joint1', 'piper_joint2', 'piper_joint3',
         'piper_joint4', 'piper_joint5', 'piper_joint6'

@@ -12,7 +12,7 @@ source /opt/ros/lyrical/setup.bash
 export ROS_DISTRO=lyrical
 export ROS_VERSION=2
 export ROS_PYTHON_VERSION=3
-export ROS_DOMAIN_ID=10
+export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-10}"
 export RMW_IMPLEMENTATION="${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}"
 export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
 export LIBGL_ALWAYS_SOFTWARE=0

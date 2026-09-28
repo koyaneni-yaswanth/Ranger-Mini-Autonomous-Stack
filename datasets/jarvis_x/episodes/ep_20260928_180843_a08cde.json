@@ -1,0 +1,93 @@
+{
+  "$schema": "https://agilex.ai/schemas/jarvis_x/episode_v1.json",
+  "metadata": {
+    "episode_id": "ep_20260928_180843_a08cde",
+    "timestamp_utc": "2026-09-28T18:08:43.900772Z",
+    "task_name": "rl_red_cube_pick_and_lift",
+    "execution_mode": "trained_ppo_policy",
+    "robot_platform": "AgileX Ranger Mini v2 + Piper 6-DOF",
+    "simulator": "Gazebo Harmonic / NVIDIA Isaac Sim 6.0"
+  },
+  "initial_conditions": {
+    "target_object": "red_cube",
+    "target_spawn_xyz": [
+      0.45,
+      0.0,
+      0.33
+    ],
+    "table_surface_z": 0.3
+  },
+  "trajectory_stream": [
+    {
+      "step": 0,
+      "time_from_start_s": 6.372,
+      "observation": {
+        "q": [
+          2.172623778290574e-16,
+          0.3500000000077044,
+          1.0000000000215714,
+          1.040417100823945e-14,
+          0.40000000001352304,
+          4.521115744122994e-15
+        ],
+        "cube_xyz": [
+          1.8041247231210311,
+          -0.00010224665002229207,
+          0.3202522866918249
+        ]
+      },
+      "action": {
+        "arm_q": [
+          0.0,
+          0.663,
+          1.937,
+          0.0,
+          -0.052,
+          0.0
+        ],
+        "gripper": 0.035
+      },
+      "reward_breakdown": {}
+    },
+    {
+      "step": 1,
+      "time_from_start_s": 8.876,
+      "observation": {
+        "q": [
+          2.172623778290574e-16,
+          0.3500000000077044,
+          1.0000000000215714,
+          1.040417100823945e-14,
+          0.40000000001352304,
+          4.521115744122994e-15
+        ],
+        "cube_xyz": [
+          1.8041247231210311,
+          -0.00010224665002229207,
+          0.3202522866918249
+        ]
+      },
+      "action": {
+        "arm_q": [
+          0.0,
+          0.908,
+          1.815,
+          0.0,
+          -0.052,
+          0.0
+        ],
+        "gripper": 0.0
+      },
+      "reward_breakdown": {}
+    }
+  ],
+  "verification_verdict": {
+    "grasp_verified": true,
+    "lift_verified": true,
+    "initial_height_m": 0.3203,
+    "final_height_m": 1.1297,
+    "net_lift_m": 0.8095,
+    "status": "SUCCESS",
+    "execution_duration_s": 15.49
+  }
+}

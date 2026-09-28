@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agilex.ai/schemas/jarvis_x/episode_v1.json",
+  "metadata": {
+    "episode_id": "ep_20260928_180532_7e8d34",
+    "timestamp_utc": "2026-09-28T18:05:32.712384Z",
+    "task_name": "rl_red_cube_pick_and_lift",
+    "execution_mode": "trained_ppo_policy",
+    "robot_platform": "AgileX Ranger Mini v2 + Piper 6-DOF",
+    "simulator": "Gazebo Harmonic / NVIDIA Isaac Sim 6.0"
+  },
+  "initial_conditions": {
+    "target_object": "red_cube",
+    "target_spawn_xyz": [
+      0.45,
+      0.0,
+      0.33
+    ],
+    "table_surface_z": 0.3
+  },
+  "trajectory_stream": [],
+  "verification_verdict": {
+    "grasp_verified": false,
+    "lift_verified": false,
+    "initial_height_m": 0.33,
+    "final_height_m": 0.33,
+    "net_lift_m": 0.0,
+    "status": "FAIL",
+    "execution_duration_s": 10.3
+  }
+}

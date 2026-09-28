@@ -1,13 +1,56 @@
 # AgileX Ranger Mini Autonomous Stack Platform Makefile
 SHELL := /bin/bash
 PROJECT_DIR := $(CURDIR)
+ROS_ENV := source /env/source_lyrical.sh && export ROS_DOMAIN_ID=10 &&
 WS_DIR := $(abspath $(PROJECT_DIR)/../ranger_mini_lyrical_2604_ws)
 
-.PHONY: all setup build clean stop test lint audit sim-base sim sim-debug demo sim-doctor simulation-e2e-test gazebo-failures-test sim-test navigation-test manipulation-test voice-test jarvis-test hardware-check hardware-test replay doctor base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli jarvis gazebo isaac train run-all run-all-gui gui
+.PHONY: all setup build clean stop test lint audit sim-base sim sim-debug demo sim-doctor simulation-e2e-test gazebo-failures-test sim-test navigation-test manipulation-test voice-test jarvis-test hardware-check hardware-test replay doctor base-only piper detect-manipulator slam nav rviz teleop real diagnostics health check jetson-check jetson-setup hw-health validate ai-task orchestrator cli jarvis gazebo isaac train run-all run-all-gui gui piper-sim piper-doctor piper-test piper-ik-test piper-gripper-test piper-pick-test piper-place-test piper-regression-test cube-pick-test place-test perception-test grasp-test manipulation-doctor jarvis-doctor
 
 all: build
 
 # Master Simulation & Demonstration Commands (Prompt Section 3, 25, 26, 27, 30, 31)
+piper-sim:
+	@bash $(PROJECT_DIR)/scripts/run_piper_sim.sh
+
+piper-doctor:
+	@bash $(PROJECT_DIR)/scripts/piper_doctor.sh
+
+piper-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_piper_motion.py
+
+piper-ik-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_piper_ik.py
+
+piper-gripper-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_piper_gripper.py
+
+piper-pick-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_piper_pick.py
+
+piper-place-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_piper_place.py
+
+piper-regression-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_piper_regression.py
+
+cube-pick-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_cube_pick.py
+
+place-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_cube_place.py
+
+perception-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_perception_audit.py
+
+grasp-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_cube_pick.py
+
+manipulation-doctor:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/manipulation_doctor.py
+
+jarvis-doctor:
+	@bash $(PROJECT_DIR)/scripts/sim_doctor.sh
+
 sim-base:
 	@bash $(PROJECT_DIR)/scripts/run_sim_base.sh
 
@@ -174,3 +217,34 @@ isaac:
 
 train:
 	@bash $(PROJECT_DIR)/scripts/train.sh
+
+# ----------------------------------------------------------------------------
+# JARVIS-X Reinforcement Learning, Isaac Simulation & Sim-to-Real Targets
+# ----------------------------------------------------------------------------
+
+isaac-audit:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/isaac_baseline_audit.py
+
+isaac-validate-assets:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/validate_isaac_assets.py
+
+isaac-train:
+	@mkdir -p /mnt/wsl/ranger_project && rsync -av --exclude 'build' --exclude 'log' --exclude '.git' $(PROJECT_DIR)/ /mnt/wsl/ranger_project/
+	@wsl.exe -d Ubuntu-22.04 docker run --rm --gpus all -e ACCEPT_EULA=Y -v /mnt/wsl/ranger_project:/workspace --entrypoint /isaac-sim/python.sh nvcr.io/nvidia/isaac-sim:6.0.0-dev2 /workspace/scripts/train_piper_rl.py
+	@cp -r /mnt/wsl/ranger_project/models/checkpoints/* $(PROJECT_DIR)/models/checkpoints/
+
+isaac-eval:
+	@mkdir -p /mnt/wsl/ranger_project && rsync -av --exclude 'build' --exclude 'log' --exclude '.git' $(PROJECT_DIR)/ /mnt/wsl/ranger_project/
+	@wsl.exe -d Ubuntu-22.04 docker run --rm --gpus all -e ACCEPT_EULA=Y -v /mnt/wsl/ranger_project:/workspace --entrypoint /isaac-sim/python.sh nvcr.io/nvidia/isaac-sim:6.0.0-dev2 /workspace/scripts/evaluate_piper_policy.py
+	@cp /mnt/wsl/ranger_project/docs/policy_evaluation_report.md $(PROJECT_DIR)/docs/
+
+isaac-export:
+	@mkdir -p /mnt/wsl/ranger_project && rsync -av --exclude 'build' --exclude 'log' --exclude '.git' $(PROJECT_DIR)/ /mnt/wsl/ranger_project/
+	@wsl.exe -d Ubuntu-22.04 docker run --rm --gpus all -e ACCEPT_EULA=Y -e PYTHONPATH=/workspace/.local_pip:/workspace -v /mnt/wsl/ranger_project:/workspace --entrypoint /isaac-sim/python.sh nvcr.io/nvidia/isaac-sim:6.0.0-dev2 /workspace/scripts/export_piper_policy.py
+	@cp -r /mnt/wsl/ranger_project/models/exported/* $(PROJECT_DIR)/models/exported/
+
+jarvis-rl-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/test_jarvis_rl_mission.py
+
+jarvis-e2e-all: isaac-audit isaac-validate-assets jarvis-rl-test
+	@echo ">>> [PASS] ALL JARVIS-X REINFORCEMENT LEARNING & MISSION HARNESSES VERIFIED <<<"
