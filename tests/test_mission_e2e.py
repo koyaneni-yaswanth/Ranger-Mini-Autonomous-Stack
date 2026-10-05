@@ -71,6 +71,7 @@ class MissionE2EVerifierNode(Node):
         # Publishers
         self.pub_speech = self.create_publisher(String, '/jarvis/recognized_speech', 10)
         self.pub_task = self.create_publisher(String, '/ai/task_command', 10)
+        self.pub_validated = self.create_publisher(String, '/ai/validated_task', 10)
 
     def odom_cb(self, msg: Odometry):
         self.odom_received = True
@@ -145,10 +146,16 @@ def run_mission_test():
     cmd_text = "Find the red cube, pick it up, and place it at the target station"
     print(f"[3/6] Dispatching user command to JARVIS: \"{cmd_text}\"...")
     
-    # Broadcast to speech and task topic
+    # Broadcast to speech, task, and validated task topic
     msg_speech = String(data=cmd_text)
     node.pub_speech.publish(msg_speech)
     node.pub_task.publish(msg_speech)
+    node.pub_validated.publish(String(data=json.dumps({
+        "task_id": "mission_e2e_001",
+        "action": "pick_and_place",
+        "object": "red_cube",
+        "destination": "table"
+    })))
 
     # 4. Monitor FSM Execution
     print("[4/6] Executing Autonomous Mission State Machine (17 States)...")

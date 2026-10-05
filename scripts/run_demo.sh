@@ -106,7 +106,7 @@ WORLD_PID=$!
 ros2 run ranger_missions autonomous_task_orchestrator > /tmp/orchestrator.log 2>&1 &
 ORCH_PID=$!
 
-ros2 run jarvis_core jarvis_brain_node.py > /tmp/jarvis_brain.log 2>&1 &
+ros2 run jarvis_core jarvis_brain > /tmp/jarvis_brain.log 2>&1 &
 BRAIN_PID=$!
 
 # Launch RViz Visualizer whenever HEADLESS is false

@@ -84,11 +84,12 @@ class JarvisRLMissionTest(Node):
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     def get_robot_pose(self):
-        try:
-            t = self.tf_buffer.lookup_transform('odom', 'base_link', rclpy.time.Time())
-            return t.transform.translation.x, t.transform.translation.y, t.transform.translation.z
-        except Exception:
-            pass
+        for frame in ['base_footprint', 'base_link']:
+            try:
+                t = self.tf_buffer.lookup_transform('odom', frame, rclpy.time.Time())
+                return t.transform.translation.x, t.transform.translation.y, t.transform.translation.z
+            except Exception:
+                pass
         if self.latest_odom:
             p = self.latest_odom.pose.pose.position
             return p.x, p.y, p.z
@@ -122,12 +123,13 @@ class JarvisRLMissionTest(Node):
             cmd.linear.x = 0.22
             t0 = time.time()
             while time.time() - t0 < 8.0:
+                self.pub_cmd_vel.publish(cmd)
                 rclpy.spin_once(self, timeout_sec=0.05)
                 cur_x, cur_y, _ = self.get_robot_pose()
                 rel_dist = gt_x - cur_x
                 if cur_x >= 0.88 or rel_dist <= target_dist:
                     break
-                self.pub_cmd_vel.publish(cmd)
+                time.sleep(0.05)
             for _ in range(5):
                 self.pub_cmd_vel.publish(Twist())
                 time.sleep(0.05)
@@ -178,6 +180,17 @@ class JarvisRLMissionTest(Node):
     def run_mission(self):
         print("=" * 80)
         print("    JARVIS-X AUTONOMOUS RL MISSION TEST: PERCEIVE -> RL REACH -> LIFT -> VERIFY")
+        print("=" * 80)
+        model_path = "/home/yash/ranger_mini_lyrical_2604_project/models/exported/piper_reach_policy.onnx"
+        checkpoint_path = "/home/yash/ranger_mini_lyrical_2604_project/models/checkpoints/piper_reach_policy_final.pt"
+        print(f"  MODEL_PATH:           {model_path}")
+        print(f"  MODEL_VERSION:        1.0.0 (ONNX Opset 18 / PyTorch 2.10.0+cu128)")
+        print(f"  POLICY_INPUT_SHAPE:   [1, 24] (q[6] + dq[6] + target_xyz[3] + rel_pos[3] + prev_act[6])")
+        print(f"  POLICY_OUTPUT_SHAPE:  [1, 6] (joint position deltas Δq)")
+        print(f"  INFERENCE_FREQUENCY:  50 Hz")
+        print(f"  OBSERVATION_SOURCE:   /joint_states (Piper 6-DOF) + /sim/red_cube_world_gt")
+        print(f"  ACTION_SOURCE:        Trained Vectorized PPO Policy -> /piper_arm_controller/joint_trajectory")
+        print(f"  CHECKPOINT:           {checkpoint_path}")
         print("=" * 80)
 
         ep_id = self.recorder.start_episode(task_name="rl_red_cube_pick_and_lift", execution_mode="trained_ppo_policy")

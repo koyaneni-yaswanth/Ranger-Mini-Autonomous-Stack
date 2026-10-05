@@ -114,5 +114,6 @@ fi
 
 echo "=============================================================================="
 echo " Press Ctrl+C to terminate simulation."
-sleep 86400 &
-wait $!
+while true; do
+    sleep 30
+done

@@ -1,0 +1,16 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# OS and Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*~

@@ -48,8 +48,14 @@ grasp-test:
 manipulation-doctor:
 	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/manipulation_doctor.py
 
+gui-doctor:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/gui_doctor.py
+
+live-monitor:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && python3 $(PROJECT_DIR)/scripts/live_simulation_monitor.py
+
 jarvis-doctor:
-	@bash $(PROJECT_DIR)/scripts/sim_doctor.sh
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/jarvis/safety/safety_supervisor.py && python3 $(PROJECT_DIR)/jarvis/capabilities/capability_registry.py
 
 sim-base:
 	@bash $(PROJECT_DIR)/scripts/run_sim_base.sh
@@ -248,3 +254,89 @@ jarvis-rl-test:
 
 jarvis-e2e-all: isaac-audit isaac-validate-assets jarvis-rl-test
 	@echo ">>> [PASS] ALL JARVIS-X REINFORCEMENT LEARNING & MISSION HARNESSES VERIFIED <<<"
+
+# ============================================================================
+# JARVIS-X FINAL MASTER SPECIFICATION TARGETS (SECTION 16)
+# ============================================================================
+
+.PHONY: robot-model-audit isaac-doctor isaac-gui-test isaac-robot-test \
+        simulation-visual-test arm-kinematics-test arm-controller-test \
+        demonstration-validate train-imitation train-rl evaluate-learned-skill \
+        export-policy jarvis-sim jarvis-e2e dataset-report sim-to-real-check final-report
+
+SKILL ?= reach
+
+# 1. doctor (already defined or alias)
+# make doctor
+
+# 2. robot-model-audit
+robot-model-audit:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/robot_model_audit.py
+
+# 3. isaac-doctor
+isaac-doctor:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/isaac_doctor.py
+
+# 4. isaac-gui-test
+isaac-gui-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/gui_doctor.py
+
+# 5. isaac-robot-test
+isaac-robot-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/test_visible_arm_movement.py
+
+# 6. simulation-visual-test
+simulation-visual-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/test_visible_movement.py
+
+# 7. arm-kinematics-test
+arm-kinematics-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/test_arm_kinematics.py
+
+# 8. arm-controller-test
+arm-controller-test:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/test_visible_arm_movement.py
+
+# 9. demonstration-validate
+demonstration-validate:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/learning/data_validation/demonstration_validator.py
+
+# 10. train-imitation SKILL=<skill>
+train-imitation:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/learning/imitation/train_imitation_skill.py --skill $(SKILL)
+
+# 11. train-rl SKILL=<skill>
+train-rl:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/learning/reinforcement_learning/train_rl_skill.py --skill $(SKILL)
+
+# 12. evaluate-learned-skill SKILL=<skill>
+evaluate-learned-skill:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/learning/evaluation/evaluate_learned_skill.py --skill $(SKILL)
+
+# 13. export-policy SKILL=<skill>
+export-policy:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/export_piper_policy.py
+
+# 14. jarvis-doctor
+# (already defined above; delegates to safety & capability audit)
+
+# 15. jarvis-sim
+jarvis-sim:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && export ROS_DOMAIN_ID=10 && bash $(PROJECT_DIR)/scripts/run_piper_sim.sh
+
+# 16. jarvis-e2e
+jarvis-e2e:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/tests/test_benchmark_suite.py
+
+# 17. dataset-report
+dataset-report:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/dataset_report.py
+
+# 18. sim-to-real-check
+sim-to-real-check:
+	@source $(PROJECT_DIR)/env/source_lyrical.sh && python3 $(PROJECT_DIR)/scripts/sim_to_real_check.py
+
+# 19. final-report
+final-report:
+	@cat $(PROJECT_DIR)/docs/final_acceptance_report.md
+

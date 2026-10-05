@@ -17,6 +17,9 @@ export RMW_IMPLEMENTATION="${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}"
 export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
 export LIBGL_ALWAYS_SOFTWARE=0
 export GALLIUM_DRIVER=d3d12
+export DISPLAY="${DISPLAY:-:0}"
+export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-0}"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/mnt/wslg/runtime-dir}"
 # Force X11/XCB for Qt to ensure flawless OGRE rendering in WSLg / RViz2
 export QT_QPA_PLATFORM=xcb
 
